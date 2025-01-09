@@ -1,0 +1,1104 @@
+{
+  "../components/FeaturedListingsCard.js -> ./partials/CardImageFeatured": {
+    "id": 51634,
+    "files": [
+      "static/chunks/8671.d14131b924df617a.js"
+    ]
+  },
+  "../components/FeaturedListingsCard.js -> ./partials/CardImageSlider": {
+    "id": 77944,
+    "files": [
+      "static/chunks/384.c75af7544a51e214.js"
+    ]
+  },
+  "../components/ListingCard.js -> ../components/partials/BusinessAds": {
+    "id": 24355,
+    "files": [
+      "static/chunks/4355.5fe175ee7aa914fb.js"
+    ]
+  },
+  "../components/ListingCard.js -> ./partials/CardImage": {
+    "id": 29974,
+    "files": [
+      "static/chunks/9974.ea2bfb444d6b29ca.js"
+    ]
+  },
+  "../components/ListingCard.js -> ./partials/CardImageSlider": {
+    "id": 77944,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/css/8a42d43e5f964eef.css",
+      "static/chunks/743.64138525f2586613.js"
+    ]
+  },
+  "../components/PropertyCard.js -> ./partials/CardImageFeatured": {
+    "id": 51634,
+    "files": [
+      "static/chunks/8671.d14131b924df617a.js"
+    ]
+  },
+  "../components/PropertyCard.js -> ./partials/CardImageSlider": {
+    "id": 77944,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/css/8a42d43e5f964eef.css",
+      "static/chunks/743.64138525f2586613.js"
+    ]
+  },
+  "../components/UserListingCard.js -> ./partials/CardImageFeatured": {
+    "id": 51634,
+    "files": [
+      "static/chunks/7242.bac993a6a1ec9bc4.js"
+    ]
+  },
+  "../components/UserListingCard.js -> ./partials/CardImageSlider": {
+    "id": 77944,
+    "files": [
+      "static/chunks/7944.a52a7038f9ec2540.js"
+    ]
+  },
+  "../components/advertiseWithUs/users/AdvertisementCard.js -> ../../partials/CardImageFeatured": {
+    "id": 51634,
+    "files": [
+      "static/chunks/1634.c9eafba47422005d.js"
+    ]
+  },
+  "../components/advertiseWithUs/users/AdvertisementDetailCard.js -> ../../partials/CardImageFeatured": {
+    "id": 51634,
+    "files": [
+      "static/chunks/6304.4bf1584249aba510.js"
+    ]
+  },
+  "../components/freelisting/FreeListingBasicDetail.js -> ../MessageModal": {
+    "id": 94301,
+    "files": []
+  },
+  "../components/listings/modals/EditListing.js -> ../../partials/SigninSignupCommon": {
+    "id": 57229,
+    "files": [
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js"
+    ]
+  },
+  "../components/listings/modals/EnquiryModal.js -> ../../partials/VerifyOtp": {
+    "id": 77936,
+    "files": [
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/8375.d565a98f8dee7d1c.js"
+    ]
+  },
+  "../components/listings/modals/ReportListing.js -> ../modals/ReportAbuse": {
+    "id": 3495,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/3495.584004536e8f0cd0.js"
+    ]
+  },
+  "../components/listings/modals/ReportListing.js -> ../modals/ReportInaccurate": {
+    "id": 97920,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/7920.a2bd78e14937d387.js"
+    ]
+  },
+  "../components/listings/modals/SmsEmailModal.js -> ../../partials/SigninSignupCommon": {
+    "id": 57229,
+    "files": [
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/3676.180b13752336794d.js"
+    ]
+  },
+  "../components/partials/CityGuidePageLayout.js -> ../listings/modals/ShareOptionModal": {
+    "id": 54074,
+    "files": [
+      "static/chunks/3752.bf047a3b120ac303.js",
+      "static/chunks/4074.f288729cb70dafd2.js"
+    ]
+  },
+  "../components/partials/CityGuidePageLayout.js -> ../partials/Footer": {
+    "id": 49488,
+    "files": [
+      "static/chunks/7166.3741502bf035a2d9.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/9488.3531b511e51fbf0b.js"
+    ]
+  },
+  "../components/partials/CityGuidePageLayout.js -> ../partials/ForgotPass": {
+    "id": 83930,
+    "files": [
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/2253.25f7bb1a64652228.js"
+    ]
+  },
+  "../components/partials/CityGuidePageLayout.js -> ../partials/SignInModalLight": {
+    "id": 20554,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/8763.25e1d8ada1d06ff8.js"
+    ]
+  },
+  "../components/partials/CityGuidePageLayout.js -> ../partials/SignUpModalLight": {
+    "id": 84178,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/7974.fb25167d5c59c7ca.js"
+    ]
+  },
+  "../components/partials/CityGuidePageLayout.js -> ../partials/VerifyOtp": {
+    "id": 77936,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/7671.5181734019297513.js"
+    ]
+  },
+  "../components/partials/CityGuidePageLayout.js -> ./ConfirmationModal": {
+    "id": 90467,
+    "files": [
+      "static/chunks/467.4e4fd72391ebf6a9.js"
+    ]
+  },
+  "../components/partials/Footer.js -> ../listings/modals/ShareOptionModal": {
+    "id": 54074,
+    "files": [
+      "static/chunks/3752.bf047a3b120ac303.js",
+      "static/chunks/4074.f288729cb70dafd2.js"
+    ]
+  },
+  "../components/partials/SignUpModalLight.js -> ../MessageModal": {
+    "id": 94301,
+    "files": [
+      "static/chunks/7685.edfa0f76c991bb99.js"
+    ]
+  },
+  "../components/partials/SignUpModalLight.js -> ../partials/VerifyOtp": {
+    "id": 77936,
+    "files": [
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/8375.d565a98f8dee7d1c.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../../components/Adsense": {
+    "id": 9500,
+    "files": []
+  },
+  "../components/searching/BusinessDetails.js -> ../AboutUsSection": {
+    "id": 14440,
+    "files": [
+      "static/css/d504c9834dcbe8d7.css",
+      "static/chunks/4440.29017af25a1c81e2.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../CompanyDescription": {
+    "id": 51814,
+    "files": [
+      "static/chunks/1814.ba1b4238a3845288.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../listings/modals/ClaimListing": {
+    "id": 12813,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/2813.6bbd415fdbccdc83.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../listings/modals/EditListing": {
+    "id": 83616,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/3616.7f00111aeeb2c2be.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../listings/modals/EnquiryModal": {
+    "id": 83951,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/3951.c57e7570ec103aca.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../listings/modals/PhoneNumberModal": {
+    "id": 1956,
+    "files": [
+      "static/chunks/1956.a186b4b089fb7321.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../listings/modals/QRCodeModal": {
+    "id": 24227,
+    "files": [
+      "static/chunks/4634.c98ad8933019eaae.js",
+      "static/chunks/4227.2ff5d73c2221fea3.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../listings/modals/ReportListing": {
+    "id": 99704,
+    "files": [
+      "static/chunks/9704.c718181f224ac822.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../listings/modals/ShareBusinessModal": {
+    "id": 93772,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/9449.9c26e3d6e0abff68.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../listings/modals/SmsEmailModal": {
+    "id": 99698,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/9698.0ad0057651d2e444.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../partials/SigninSignupCommon": {
+    "id": 57229,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/7660.ec57c708cd5df9fe.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../searching/BusinessDetailsReview": {
+    "id": 81377,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/1377-cad835848bb2ea5c.js",
+      "static/chunks/2157.82b0030b597a13c5.js"
+    ]
+  },
+  "../components/searching/BusinessDetails.js -> ../sliders/SlideList": {
+    "id": 28667,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/2771.d3dfaad7e13f0b2b.js",
+      "static/chunks/7763.86d210857721dfeb.js",
+      "static/css/25e604f3c9bce7bb.css",
+      "static/chunks/9065.4872a379ba698a69.js"
+    ]
+  },
+  "../components/searching/BusinessListings.js -> ../AboutUsSection": {
+    "id": 14440,
+    "files": [
+      "static/css/d504c9834dcbe8d7.css",
+      "static/chunks/4440.29017af25a1c81e2.js"
+    ]
+  },
+  "../components/searching/BusinessListings.js -> ../MessageModal": {
+    "id": 94301,
+    "files": [
+      "static/chunks/4301.90a217c5a46b1835.js"
+    ]
+  },
+  "../components/searching/BusinessListings.js -> ../Services": {
+    "id": 10329,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/329-3b6eb28933bdcb10.js",
+      "static/css/6b1fb1646c778b63.css",
+      "static/chunks/8805.56db75f6fc5c3ad8.js"
+    ]
+  },
+  "../components/searching/BusinessListings.js -> ../listings/modals/EnquiryModal": {
+    "id": 83951,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3951.c57e7570ec103aca.js",
+      "static/chunks/9491.648a8deb69a919a1.js"
+    ]
+  },
+  "../components/searching/BusinessListings.js -> ../listings/modals/PhoneNumberModal": {
+    "id": 1956,
+    "files": [
+      "static/chunks/1956.a186b4b089fb7321.js"
+    ]
+  },
+  "../components/searching/BusinessListings.js -> ../listings/modals/SetLocationSortModal": {
+    "id": 41601,
+    "files": [
+      "static/chunks/1601.d70e433cbc033ed2.js"
+    ]
+  },
+  "../components/searching/BusinessListings.js -> ../listings/modals/SmsEmailModal": {
+    "id": 99698,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/9698.0ad0057651d2e444.js",
+      "static/chunks/8041.45e9561feb103cf9.js"
+    ]
+  },
+  "../components/searching/BusinessListings.js -> ../partials/BusinessAds": {
+    "id": 24355,
+    "files": [
+      "static/chunks/4355.5fe175ee7aa914fb.js"
+    ]
+  },
+  "../components/searching/head/SearchDiv.js -> ../../BgParallax": {
+    "id": 70602,
+    "files": [
+      "static/chunks/1014.5b58eed0cfb76ea7.js",
+      "static/chunks/602.2e7fc32a00ad7ad0.js"
+    ]
+  },
+  "../components/sliders/SlideListingsCard.js -> ../partials/CardImage": {
+    "id": 29974,
+    "files": [
+      "static/chunks/9974.ea2bfb444d6b29ca.js"
+    ]
+  },
+  "../components/sliders/SlideListingsCard.js -> ../partials/CardImageSlider": {
+    "id": 77944,
+    "files": [
+      "static/chunks/384.c75af7544a51e214.js"
+    ]
+  },
+  "[...search_id](27-07-2023).js -> ../components/searching/BusinessDetails": {
+    "id": 92884,
+    "files": [
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/8106-09121fc96b045463.js",
+      "static/chunks/8245.543b2aedcd457446.js",
+      "static/chunks/1833-3b13bfcc3e67cd55.js",
+      "static/css/3593927c496b970f.css",
+      "static/css/3387c8b31dbbeee6.css",
+      "static/chunks/8766.3637c6cb54513838.js"
+    ]
+  },
+  "[...search_id](27-07-2023).js -> ../components/searching/BusinessEditListing": {
+    "id": 70437,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/5247-ea2ea05f769f0615.js",
+      "static/chunks/4127.2c8642e46c6bb666.js",
+      "static/chunks/5017-8f0647f8bf153ca4.js",
+      "static/css/3593927c496b970f.css",
+      "static/css/ce7fd050a122782d.css",
+      "static/chunks/4119.43ec89885619e337.js"
+    ]
+  },
+  "[...search_id](27-07-2023).js -> ../components/searching/BusinessListings": {
+    "id": 78612,
+    "files": [
+      "static/chunks/7459-f51549d85fa3bf36.js",
+      "static/chunks/7763.86d210857721dfeb.js",
+      "static/css/2e3796532a51c587.css",
+      "static/chunks/8612.7a1717239de3e536.js"
+    ]
+  },
+  "[...search_id](27-07-2023).js -> ../components/searching/CategoryLisitng": {
+    "id": 20347,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/7459-f51549d85fa3bf36.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/329-3b6eb28933bdcb10.js",
+      "static/css/646201e99df1ef0b.css",
+      "static/chunks/2335.1efce17a1857275c.js"
+    ]
+  },
+  "[...search_id](27-07-2023).js -> ../components/searching/NoSearchFound": {
+    "id": 39528,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/css/a08ddcadf3d12a5a.css",
+      "static/chunks/8437.843b79c7cc32ea90.js"
+    ]
+  },
+  "[...search_id](27-07-2023).js -> ../components/searching/head/SearchDiv": {
+    "id": 77893,
+    "files": [
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/1833-3b13bfcc3e67cd55.js",
+      "static/chunks/7153.2891186ee2278577.js"
+    ]
+  },
+  "[...search_id](bkp-kp-11-08-2023).js -> ../components/searching/BusinessDetails": {
+    "id": 92884,
+    "files": [
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/8106-09121fc96b045463.js",
+      "static/chunks/8245.543b2aedcd457446.js",
+      "static/chunks/1833-3b13bfcc3e67cd55.js",
+      "static/css/3593927c496b970f.css",
+      "static/css/3387c8b31dbbeee6.css",
+      "static/chunks/8766.3637c6cb54513838.js"
+    ]
+  },
+  "[...search_id](bkp-kp-11-08-2023).js -> ../components/searching/BusinessEditListing": {
+    "id": 70437,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/5247-ea2ea05f769f0615.js",
+      "static/chunks/4127.2c8642e46c6bb666.js",
+      "static/chunks/5017-8f0647f8bf153ca4.js",
+      "static/css/3593927c496b970f.css",
+      "static/css/ce7fd050a122782d.css",
+      "static/chunks/4119.43ec89885619e337.js"
+    ]
+  },
+  "[...search_id](bkp-kp-11-08-2023).js -> ../components/searching/BusinessListings": {
+    "id": 78612,
+    "files": [
+      "static/chunks/7459-f51549d85fa3bf36.js",
+      "static/chunks/7763.86d210857721dfeb.js",
+      "static/css/2e3796532a51c587.css",
+      "static/chunks/8612.7a1717239de3e536.js"
+    ]
+  },
+  "[...search_id](bkp-kp-11-08-2023).js -> ../components/searching/CategoryLisitng": {
+    "id": 20347,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/7459-f51549d85fa3bf36.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/329-3b6eb28933bdcb10.js",
+      "static/css/646201e99df1ef0b.css",
+      "static/chunks/2335.1efce17a1857275c.js"
+    ]
+  },
+  "[...search_id](bkp-kp-11-08-2023).js -> ../components/searching/NoSearchFound": {
+    "id": 39528,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/css/a08ddcadf3d12a5a.css",
+      "static/chunks/8437.843b79c7cc32ea90.js"
+    ]
+  },
+  "[...search_id](bkp-kp-11-08-2023).js -> ../components/searching/head/SearchDiv": {
+    "id": 77893,
+    "files": [
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/1833-3b13bfcc3e67cd55.js",
+      "static/chunks/7153.2891186ee2278577.js"
+    ]
+  },
+  "[...search_id](bkp-kp-21-07-2023).js -> ../components/searching/BusinessDetails": {
+    "id": 92884,
+    "files": [
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/8106-09121fc96b045463.js",
+      "static/chunks/8245.543b2aedcd457446.js",
+      "static/chunks/1833-3b13bfcc3e67cd55.js",
+      "static/css/3593927c496b970f.css",
+      "static/css/3387c8b31dbbeee6.css",
+      "static/chunks/8766.3637c6cb54513838.js"
+    ]
+  },
+  "[...search_id](bkp-kp-21-07-2023).js -> ../components/searching/BusinessEditListing": {
+    "id": 70437,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/5247-ea2ea05f769f0615.js",
+      "static/chunks/4127.2c8642e46c6bb666.js",
+      "static/chunks/5017-8f0647f8bf153ca4.js",
+      "static/css/3593927c496b970f.css",
+      "static/css/ce7fd050a122782d.css",
+      "static/chunks/4119.43ec89885619e337.js"
+    ]
+  },
+  "[...search_id](bkp-kp-21-07-2023).js -> ../components/searching/BusinessListings": {
+    "id": 78612,
+    "files": [
+      "static/chunks/7459-f51549d85fa3bf36.js",
+      "static/chunks/7763.86d210857721dfeb.js",
+      "static/css/2e3796532a51c587.css",
+      "static/chunks/8612.7a1717239de3e536.js"
+    ]
+  },
+  "[...search_id](bkp-kp-21-07-2023).js -> ../components/searching/CategoryLisitng": {
+    "id": 20347,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/7459-f51549d85fa3bf36.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/329-3b6eb28933bdcb10.js",
+      "static/css/646201e99df1ef0b.css",
+      "static/chunks/2335.1efce17a1857275c.js"
+    ]
+  },
+  "[...search_id](bkp-kp-21-07-2023).js -> ../components/searching/NoSearchFound": {
+    "id": 39528,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/css/a08ddcadf3d12a5a.css",
+      "static/chunks/8437.843b79c7cc32ea90.js"
+    ]
+  },
+  "[...search_id](bkp-kp-21-07-2023).js -> ../components/searching/head/SearchDiv": {
+    "id": 77893,
+    "files": [
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/1833-3b13bfcc3e67cd55.js",
+      "static/chunks/7153.2891186ee2278577.js"
+    ]
+  },
+  "[...search_id].js -> ../components/searching/BusinessDetails": {
+    "id": 92884,
+    "files": [
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/8106-09121fc96b045463.js",
+      "static/chunks/8245.543b2aedcd457446.js",
+      "static/chunks/1833-3b13bfcc3e67cd55.js",
+      "static/css/3593927c496b970f.css",
+      "static/css/3387c8b31dbbeee6.css",
+      "static/chunks/8766.3637c6cb54513838.js"
+    ]
+  },
+  "[...search_id].js -> ../components/searching/BusinessEditListing": {
+    "id": 70437,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/5247-ea2ea05f769f0615.js",
+      "static/chunks/4127.2c8642e46c6bb666.js",
+      "static/chunks/5017-8f0647f8bf153ca4.js",
+      "static/css/3593927c496b970f.css",
+      "static/css/ce7fd050a122782d.css",
+      "static/chunks/4119.43ec89885619e337.js"
+    ]
+  },
+  "[...search_id].js -> ../components/searching/BusinessListings": {
+    "id": 78612,
+    "files": [
+      "static/chunks/7459-f51549d85fa3bf36.js",
+      "static/chunks/7763.86d210857721dfeb.js",
+      "static/css/2e3796532a51c587.css",
+      "static/chunks/8612.7a1717239de3e536.js"
+    ]
+  },
+  "[...search_id].js -> ../components/searching/CategoryLisitng": {
+    "id": 20347,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/7459-f51549d85fa3bf36.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/329-3b6eb28933bdcb10.js",
+      "static/css/646201e99df1ef0b.css",
+      "static/chunks/2335.1efce17a1857275c.js"
+    ]
+  },
+  "[...search_id].js -> ../components/searching/NoSearchFound": {
+    "id": 39528,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/css/a08ddcadf3d12a5a.css",
+      "static/chunks/8437.843b79c7cc32ea90.js"
+    ]
+  },
+  "[...search_id].js -> ../components/searching/head/SearchDiv": {
+    "id": 77893,
+    "files": [
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/1833-3b13bfcc3e67cd55.js",
+      "static/chunks/7153.2891186ee2278577.js"
+    ]
+  },
+  "add-business.js -> ../components/partials/CustomMarker": {
+    "id": 8142,
+    "files": [
+      "static/chunks/0b7b90cd.e545e020d1012f94.js",
+      "static/chunks/570.782e8a9e3f8ca188.js"
+    ]
+  },
+  "add-business.js -> react-leaflet": {
+    "id": 42280,
+    "files": [
+      "static/chunks/0b7b90cd.e545e020d1012f94.js",
+      "static/chunks/2280.db4e89989ad7c088.js"
+    ]
+  },
+  "advertise-with-us/detail.js -> ../../components/advertiseWithUs/AdvertiseWithUsCreateLayout": {
+    "id": 59273,
+    "files": [
+      "static/chunks/fc56bfa5-54289b54fdca4b33.js",
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/401-6c29b93ea900ccfe.js",
+      "static/chunks/5247-ea2ea05f769f0615.js",
+      "static/css/da438abfa874b5ea.css",
+      "static/chunks/8087-dc59b1f294c00d29.js",
+      "static/chunks/1480-ad8700db1e6c2050.js",
+      "static/chunks/8379-18cd28474b5907eb.js",
+      "static/chunks/9341.a45f03397bac3ddf.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/css/03ba125d4649465e.css",
+      "static/chunks/5017-8f0647f8bf153ca4.js",
+      "static/chunks/4338-b2feb24144477a96.js",
+      "static/chunks/8621-b0be905662bf97a2.js",
+      "static/css/91e7d854d59d96fe.css",
+      "static/chunks/8866.8f6a8515c7e79295.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/AboutUsSection": {
+    "id": 14440,
+    "files": [
+      "static/css/d504c9834dcbe8d7.css",
+      "static/chunks/4440.29017af25a1c81e2.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/ComboPackages": {
+    "id": 67616,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/css/5d9d5e7c4a631f4a.css",
+      "static/chunks/1119.670e394f70519ef0.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/FeaturedListings": {
+    "id": 88902,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/2771.d3dfaad7e13f0b2b.js",
+      "static/chunks/3082.6791627aafe6cd1c.js",
+      "static/css/4f136ad2b740d169.css",
+      "static/chunks/4817.482214e84f5fc1ee.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/HomeSlider": {
+    "id": 34288,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/css/c373afb58a2a33a1.css",
+      "static/chunks/5501.e94d944a72f7fb42.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/HowItWorks": {
+    "id": 27692,
+    "files": [
+      "static/chunks/8106-09121fc96b045463.js",
+      "static/chunks/4206-cf9ab3d39bea7f97.js",
+      "static/css/580daf223c196d68.css",
+      "static/chunks/5612.b49fad8ee1535a6f.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/InstaGramPost": {
+    "id": 90924,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/css/c373afb58a2a33a1.css",
+      "static/chunks/157.7063c02d05a57ab4.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/MediaFeed": {
+    "id": 79864,
+    "files": [
+      "static/chunks/9864-85da7293a108392a.js",
+      "static/css/c373afb58a2a33a1.css",
+      "static/chunks/5537.418bcac4d25d94a1.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/OurTestimonial": {
+    "id": 41540,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/8106-09121fc96b045463.js",
+      "static/chunks/4206-cf9ab3d39bea7f97.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/css/96dde704b6c40154.css",
+      "static/chunks/7647.080510ab47009a81.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/PostRequirForm": {
+    "id": 16387,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/376.1927be1b20a025ba.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/Publications": {
+    "id": 27113,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/css/c373afb58a2a33a1.css",
+      "static/chunks/116.7462e84d570db2a4.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/Services": {
+    "id": 10329,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/329-3b6eb28933bdcb10.js",
+      "static/css/6b1fb1646c778b63.css",
+      "static/chunks/8822.0069d5386561e5c1.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/TrendingCategories": {
+    "id": 44781,
+    "files": [
+      "static/chunks/2771.d3dfaad7e13f0b2b.js",
+      "static/css/c784af6f8837bb98.css",
+      "static/chunks/4471.30807070497936a1.js"
+    ]
+  },
+  "city/[...city].js -> ../../components/TrendingListings": {
+    "id": 32126,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/2771.d3dfaad7e13f0b2b.js",
+      "static/chunks/3082.6791627aafe6cd1c.js",
+      "static/css/2c53a469714855ec.css",
+      "static/chunks/1472.431f7949f29b2a8e.js"
+    ]
+  },
+  "contact-us(bkp-09-05-23).js -> ../components/partials/CustomMarker": {
+    "id": 8142,
+    "files": [
+      "static/chunks/0b7b90cd.e545e020d1012f94.js",
+      "static/chunks/570.782e8a9e3f8ca188.js"
+    ]
+  },
+  "contact-us(bkp-09-05-23).js -> react-leaflet": {
+    "id": 42280,
+    "files": [
+      "static/chunks/0b7b90cd.e545e020d1012f94.js",
+      "static/chunks/2280.db4e89989ad7c088.js"
+    ]
+  },
+  "contact-us(bkp-22-05-23).js -> ../components/partials/CustomMarker": {
+    "id": 8142,
+    "files": [
+      "static/chunks/0b7b90cd.e545e020d1012f94.js",
+      "static/chunks/570.782e8a9e3f8ca188.js"
+    ]
+  },
+  "contact-us(bkp-22-05-23).js -> react-leaflet": {
+    "id": 42280,
+    "files": [
+      "static/chunks/0b7b90cd.e545e020d1012f94.js",
+      "static/chunks/2280.db4e89989ad7c088.js"
+    ]
+  },
+  "contact-usbkp-01-05-23.js -> ../components/partials/CustomMarker": {
+    "id": 8142,
+    "files": [
+      "static/chunks/0b7b90cd.e545e020d1012f94.js",
+      "static/chunks/570.782e8a9e3f8ca188.js"
+    ]
+  },
+  "contact-usbkp-01-05-23.js -> react-leaflet": {
+    "id": 42280,
+    "files": [
+      "static/chunks/0b7b90cd.e545e020d1012f94.js",
+      "static/chunks/2280.db4e89989ad7c088.js"
+    ]
+  },
+  "index.js -> ../components/AboutUsSection": {
+    "id": 14440,
+    "files": [
+      "static/css/d504c9834dcbe8d7.css",
+      "static/chunks/4440.29017af25a1c81e2.js"
+    ]
+  },
+  "index.js -> ../components/ComboPackages": {
+    "id": 67616,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/css/5d9d5e7c4a631f4a.css",
+      "static/chunks/1119.670e394f70519ef0.js"
+    ]
+  },
+  "index.js -> ../components/FeaturedListings": {
+    "id": 88902,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/2771.d3dfaad7e13f0b2b.js",
+      "static/chunks/3082.6791627aafe6cd1c.js",
+      "static/css/4f136ad2b740d169.css",
+      "static/chunks/4817.482214e84f5fc1ee.js"
+    ]
+  },
+  "index.js -> ../components/HomeSlider": {
+    "id": 34288,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/css/c373afb58a2a33a1.css",
+      "static/chunks/5501.e94d944a72f7fb42.js"
+    ]
+  },
+  "index.js -> ../components/HowItWorks": {
+    "id": 27692,
+    "files": [
+      "static/chunks/8106-09121fc96b045463.js",
+      "static/chunks/4206-cf9ab3d39bea7f97.js",
+      "static/css/580daf223c196d68.css",
+      "static/chunks/5612.b49fad8ee1535a6f.js"
+    ]
+  },
+  "index.js -> ../components/InstaGramPost": {
+    "id": 90924,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/css/c373afb58a2a33a1.css",
+      "static/chunks/157.7063c02d05a57ab4.js"
+    ]
+  },
+  "index.js -> ../components/MediaFeed": {
+    "id": 79864,
+    "files": [
+      "static/chunks/9864-85da7293a108392a.js",
+      "static/css/c373afb58a2a33a1.css",
+      "static/chunks/5537.418bcac4d25d94a1.js"
+    ]
+  },
+  "index.js -> ../components/OurTestimonial": {
+    "id": 41540,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/8106-09121fc96b045463.js",
+      "static/chunks/4206-cf9ab3d39bea7f97.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/css/96dde704b6c40154.css",
+      "static/chunks/7647.080510ab47009a81.js"
+    ]
+  },
+  "index.js -> ../components/PostRequirForm": {
+    "id": 16387,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/376.1927be1b20a025ba.js"
+    ]
+  },
+  "index.js -> ../components/Publications": {
+    "id": 27113,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/css/c373afb58a2a33a1.css",
+      "static/chunks/116.7462e84d570db2a4.js"
+    ]
+  },
+  "index.js -> ../components/Services": {
+    "id": 10329,
+    "files": [
+      "static/chunks/7333-eb417f889a822809.js",
+      "static/chunks/4793-018f964b17d68cdf.js",
+      "static/chunks/3079-1c4c411b15516854.js",
+      "static/chunks/9198-c1bc479a99fe07d5.js",
+      "static/css/f8aee2f66a30e49b.css",
+      "static/chunks/8447-fea233e8fc6ede07.js",
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/261-af5823276cea09c0.js",
+      "static/chunks/7936-6c3a894e8d7d05b1.js",
+      "static/chunks/4178-92fabba437df34ec.js",
+      "static/chunks/554-ccb8ba6e0a5686f5.js",
+      "static/chunks/7229-1c904c0455d4af66.js",
+      "static/chunks/329-3b6eb28933bdcb10.js",
+      "static/css/6b1fb1646c778b63.css",
+      "static/chunks/8822.0069d5386561e5c1.js"
+    ]
+  },
+  "index.js -> ../components/TrendingCategories": {
+    "id": 44781,
+    "files": [
+      "static/chunks/2771.d3dfaad7e13f0b2b.js",
+      "static/css/c784af6f8837bb98.css",
+      "static/chunks/4471.30807070497936a1.js"
+    ]
+  },
+  "index.js -> ../components/TrendingListings": {
+    "id": 32126,
+    "files": [
+      "static/chunks/6394-505893c65b97e442.js",
+      "static/chunks/2771.d3dfaad7e13f0b2b.js",
+      "static/chunks/3082.6791627aafe6cd1c.js",
+      "static/css/2c53a469714855ec.css",
+      "static/chunks/1472.431f7949f29b2a8e.js"
+    ]
+  }
+}
