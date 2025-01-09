@@ -23,50 +23,40 @@
 <div class="product_list_p">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <form method="GET" action="{{ route('products') }}">
-                    <div class="filter_card">
-                        <h3>ترشيح</h3>
-                        <!-- Brand Filters -->
-                        <div class="select_filter">
-                            <h4>علامات تجارية</h4>
-                            <!-- <form method="GET" action="{{ route('products') }}"> -->
-                            @foreach ($brands as $brand)
-                                <div class="form-check-f">
-                                    <input class="form-check-input" type="checkbox" name="brands[]" value="{{ $brand->id }}"
-                                        id="brand-{{ $brand->id }}" @if(in_array($brand->id, $selectedBrands)) checked
-                                        @endif>
-                                    <label class="form-check-label" for="brand-{{ $brand->id }}">{{ $brand->name }}</label>
-                                </div>
-                            @endforeach
-                            <!-- <button type="submit" class="btn btn-primary mt-2">تصفية</button>
-    </form> -->
-                        </div>
+            <div class="col-md-4 col-lg-3">
+            <form method="GET" action="{{ route('products') }}" id="filter-form">
+    <div class="filter_card">
+        <h3>ترشيح</h3>
 
+        <!-- Brand Filters -->
+        <div class="select_filter">
+            <h4>علامات تجارية</h4>
+            @foreach ($brands as $brand)
+                <div class="form-check-f">
+                    <input class="form-check-input" type="checkbox" name="brands[]" value="{{ $brand->id }}"
+                        id="brand-{{ $brand->id }}" @if(in_array($brand->id, $selectedBrands)) checked @endif>
+                    <label class="form-check-label" for="brand-{{ $brand->id }}">{{ $brand->name }}</label>
+                </div>
+            @endforeach
+        </div>
 
-                        <!-- Category Filters -->
-                        <div class="select_filter">
-                            <h4>فئات</h4>
-                            <!-- <form method="GET" action="{{ route('products') }}"> -->
-                            @foreach ($categorys as $category)
-                                <div class="form-check-f">
-                                    <input class="form-check-input" type="checkbox" name="categories[]"
-                                        value="{{ $category->id }}" id="category-{{ $category->id }}"
-                                        @if(in_array($category->id, $selectedCategories)) checked @endif>
-                                    <label class="form-check-label"
-                                        for="category-{{ $category->id }}">{{ $category->name }}</label>
-                                </div>
-                            @endforeach
-                            <button type="submit" class="btn btn-primary mt-2">تصفية</button>
-
-                        </div>
-
-
-                    </div>
-                </form>
+        <!-- Category Filters -->
+        <div class="select_filter">
+            <h4>فئات</h4>
+            @foreach ($categorys as $category)
+                <div class="form-check-f">
+                    <input class="form-check-input" type="checkbox" name="categories[]"
+                        value="{{ $category->id }}" id="category-{{ $category->id }}" 
+                        @if(in_array($category->id, $selectedCategories)) checked @endif>
+                    <label class="form-check-label" for="category-{{ $category->id }}">{{ $category->name }}</label>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</form>
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-8 col-lg-9">
                 <div class="product_inner">
                     <div class="Short_by">
                         <h5>فرز حسب:</h5>
@@ -88,7 +78,7 @@
                         @else
 
                             @foreach($allProducts as $key => $product)
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-12 product-card"
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-card"
                                     data-seller="{{ $product->best_seller }}">
                                     <div class="product_card">
                                         <a href="{{ route('productdetails', $product->id) }}">
@@ -281,5 +271,14 @@
             }
 
         </script>
+        <script>
+    // Add event listeners to the checkboxes to submit the form on change
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            // Trigger the form submission when a checkbox is clicked
+            document.getElementById('filter-form').submit();
+        });
+    });
+</script>
     @endpush
-@endsection
+    @endsection

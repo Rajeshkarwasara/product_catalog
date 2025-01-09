@@ -1054,7 +1054,7 @@ h5.btn_hero_ab {
 .about_hero_text ul li::after {
     position: absolute;
     content: "";
-    background: url(/images/listing_icon.svg) no-repeat;
+    background: url(./images/listing_icon.svg) no-repeat;
     top: 13px;
     width: 26px;
     height: 26px;
@@ -1447,6 +1447,21 @@ button.btn.btn-mobal svg {
 .login_user_name i.fa-solid.fa-caret-right.fa-rotate-by { 
     display: none;
 }
+.pagination_list .page-link{
+    border-radius: 50px !important;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 5px;
+}
+
+.user_login:hover .dropdown_menu {
+    width: 150px;
+    left: 0;
+    right: unset;
+    border-radius: 5px;
+}
 
 
 
@@ -1558,6 +1573,42 @@ button.btn.btn-mobal svg {
         max-height: 360px;
     height: 360px;
     }
+    .product_img {
+        max-height: 220px;
+        height: 220px;
+    }
+    .about_hero_text h1 {     
+        font-size: 26px;
+    }
+    .about_hero_text p {
+        font-size: 14px;
+    }
+    .about_hero_text ul li {
+        font-size: 14px;
+        padding: 10px 36px 1px 2px;
+    }
+    .counter-box span {
+        font-size: 24px;
+    }
+    .summery_hedding h2 {
+        font-size: 22px;
+    }
+    .contact_hedding h1{
+        font-size: 24px;
+    }
+    .contact_info {
+        padding: 20px 15px;
+    }
+    .cont_info_text p{
+        font-size: 13px;
+    }
+    .contact_map_card h2{
+        font-size: 18px;
+    }
+    .user_login:hover .dropdown_menu{
+        right: 0;
+    }
+
     
 
 }
@@ -1578,6 +1629,64 @@ button.btn.btn-mobal svg {
         max-height: 360px;
     height: 360px;
     }
+    .product_inner {
+        margin-top: 20px;
+    }
+
+    .counter-box span {
+        font-size: 20px;
+    }
+    .summery_hedding h2 {
+        font-size: 20px;
+    }
+    .contact_hedding h1{
+        font-size: 20px;
+    }
+    .top-nav .text h6, .top-nav .social-icons p{
+        font-size: 13px;
+    }
+    .slider_contant h1 {
+        font-size: 22px;
+    }
+    .hedding_part h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .brands_section { 
+        padding: 20px 0;
+    }
+    .product_slider {
+        padding: 30px 0 20px;
+    }
+    .product_slider .hedding_part.d-flex {
+        margin-bottom:20px;
+    }
+    .hedding_part h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .offer_card_inner {
+        padding: 30px 15px;
+    }
+    button.btn.btn-hero {
+        margin-top: 10px;
+    }
+    .footer_links h3 {
+        font-size: 16px;
+    }
+    .product_con h3 {
+        font-size: 16px;
+    }
+    .form-check-f {
+        display: inline-block;
+    }
+    .product_list_p {
+        padding: 20px 0 0;
+    }
+    .about_card {
+        padding: 0px 0 20px;
+    }
+    
     
 
 }
