@@ -253,7 +253,7 @@
                                     <a class="nav-link" href="#">المدونات</a>
                                 </li> -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">دعم العملاء</a>
+                                    <a class="nav-link" href="{{route('contact_us')}}">دعم العملاء</a>
                                 </li>
                             </ul>
                         </div>
