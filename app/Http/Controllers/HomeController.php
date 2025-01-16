@@ -31,7 +31,7 @@ class HomeController extends Controller
 
    public function index()
 {
-    $sliders = Slider::limit(3)->get();
+    $sliders = Slider::limit(12)->get();
     $brands = Brands::all();
     $products = Product::where('new_products', 'yes')
     ->orWhere('best_seller', 'yes')
@@ -99,7 +99,7 @@ public function products(Request $request)
     }
 
     // Get the filtered products using simple pagination
-    $allProducts = $productsQuery->Paginate(13);  // Change paginate to simplePaginate
+    $allProducts = $productsQuery->Paginate(12);  // Change paginate to simplePaginate
 
     // Get all brands and categories for filters
     $brands = Brands::all();
