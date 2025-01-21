@@ -212,6 +212,7 @@
                                     <label for="">File</label>
                                     <div class="image-border-shap">
                                         <div id="imagePreviewContainer" class="w-100 h-100" style="display:none;">
+
                                         </div>
                                     </div>
                                 </div>
@@ -689,7 +690,7 @@
                         var variables = response.config_val;
                         //put  item details in all input fields
                         $("#viewModal").find(".view_title").text(item.title);
-                        $("#viewModal").find(".view_des").text($(item.description).text());
+                        $("#viewModal").find(".view_des").text(item.description);
                         // $("#viewModal").find(".view_link").html('<a href="' + item.link + '" target="_blank">View Link</a>');
                         const startdate = moment(item.start_date);
                         $("#viewModal .view_start_date").text(startdate.format("DD-MM-YYYY"));
@@ -698,14 +699,16 @@
 
                         var fileName1 = item.image;
                         var imagePath1 = '/uploads/slider_image/' + fileName1;
-
+                        $('#imagePreviewContainer').html('<img>').show();
                         // Check if the file is a video or image
                         var extension = fileName1.split('.').pop().toLowerCase();
+                        
                         // alert(extension);
                         if (extension === 'jpg' || extension === 'jpeg' || extension === 'png' || extension === 'gif') {
                             // Create an <img> tag
                             var imgTag1 = $('<img>').attr('src', imagePath1).attr('alt', 'Image');
                             $('#imagePreviewContainer').html(imgTag1).show();
+                            
                         } else if (extension === 'mp4' || extension === 'avi' || extension === 'mov') {
                             // Create a <video> tag
                             var videoTag1 = $('<video>').attr('controls', true).attr('class', 'w-100 h-100'); // add controls attribute to enable video controls
