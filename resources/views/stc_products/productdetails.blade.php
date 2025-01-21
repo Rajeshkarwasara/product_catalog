@@ -1,6 +1,28 @@
 @extends('layouts.stc_product.header')
 @section('content')
+ <style>
+    .warrent {
+    width: 146px;
+    position: absolute;
+}
+.warrent span {
+    position: relative;
+    float: left;
+    height: 49px;
+    display: flex
+;
+    align-items: center;
+    background: #fff;
+    border-radius: 30px;
+    width: 49px;
+    justify-content: center;
+    margin-top: 8px;
+    font-weight: bolder;
+    font-size: 35px;
+    color: #009ed2;
+}
 
+ </style>
 <div class="breadcrumb_card">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&quot;);"
@@ -191,9 +213,12 @@
 
 
                         </div>
+                        @if($productdetails->warranty != 0)
                         <div class="warrent_images">
+                        <div class="warrent"> <span> {{ $productdetails->warranty}}</span> </div>
                             <img src="{{ asset('stc_css/images/months_warranty.png')}}" alt="">
                         </div>
+                        @endif
                     </form>
                     <!--  <div class="select_pr">
                             <h4 style="font-weight:400 !important;">{{ $productdetails->measurements }}</h4>
