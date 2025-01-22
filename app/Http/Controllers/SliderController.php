@@ -188,7 +188,7 @@ class SliderController extends Controller
             'published_status' => 'required',
             'user_type' => 'required',
 
-            'description' => 'required',
+            
         ];
         $msg = [
             'title.unique' => 'The title has already been taken.',
