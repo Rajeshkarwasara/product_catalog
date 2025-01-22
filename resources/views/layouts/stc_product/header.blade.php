@@ -295,7 +295,7 @@
                 margin: 10,
                 dots: true,
                 autoplay: true,
-                autoplayTimeout: 5000,
+                autoplayTimeout: 5000000,
                 rtl: true, // Enable RTL mode
                 dots: true, // Ensure dots are enabled
                 responsive: {

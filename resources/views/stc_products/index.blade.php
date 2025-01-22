@@ -17,7 +17,7 @@
                                     <div class="slider_contant">
                                         <h5>أفضل المنتجات</h5>
                                         <h1>{{$slider->title}}</h1>
-                                        <p>{{$slider->description}}</p>
+                                        <p>{!! $slider->description !!}</p>
                                         <button type="button" class="btn btn-hero" id="btnn">المزيد من المعلومات
                                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                                                 width="24px" fill="#5f6368">

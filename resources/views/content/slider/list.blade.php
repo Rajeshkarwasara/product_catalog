@@ -595,7 +595,7 @@
                 rules: {
                     title: {
                         required: true,
-                        regex: true
+                        regex: false
                     },
                     // link: {
                     //     required: true,
