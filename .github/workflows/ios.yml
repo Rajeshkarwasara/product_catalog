@@ -12,12 +12,14 @@ jobs:
     runs-on: self-hosted
 
     steps:
-     - name: Directory Permissions Before Checkout
-     run: sudo chmod -R 777 /var/www/orbitnapp.com/pcatalog.orbitnapp.com/actions-runner/_work/product_catalog/product_catalog/
-     
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.0'
+    - name: Directory Permissions Before Checkout
+      run: |
+        # Fix permissions for files and directories under the repository
+        sudo chown -R ubuntu:ubuntu /var/www/orbitnapp.com/pcatalog.orbitnapp.com/actions-runner/_work/product_catalog/product_catalog/
+        sudo chmod -R 777 /var/www/orbitnapp.com/pcatalog.orbitnapp.com/actions-runner/_work/product_catalog/product_catalog/
     - uses: actions/checkout@v3
     - name: Directory Permissions
       run: |
