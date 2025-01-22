@@ -1,0 +1,9 @@
+# Ignore .env file
+.env
+
+# Ignore all .yml files (including .yaml files)
+*.yml
+*.yaml
+
+# Ignore all .log files
+.log

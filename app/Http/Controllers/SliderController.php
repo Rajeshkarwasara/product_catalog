@@ -198,7 +198,7 @@ class SliderController extends Controller
 
         if (isset($request->id) && $request->id > 0) {
             $rules['image'] = 'nullable|mimetypes:image/*,video/*';
-            $rules['title'] = 'required|unique:sliders,title,' . $request->id . ',id,deleted_at,NULL';
+            $rules['title'] = 'required';
 
             $validator = Validator::make($request->all(), $rules, $msg);
         } else {
