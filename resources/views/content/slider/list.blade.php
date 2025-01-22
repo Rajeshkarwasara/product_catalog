@@ -165,7 +165,7 @@
 
                                 <div class="col-sm-12" id="editor">
                                     <div class="mb-3 fv-plugins-icon-container">
-                                        <label class="form-label" for="description">Description<span class="text-danger">*</span></label>
+                                        <label class="form-label" for="description">Description</label>
                                         <div class="pad">
                                             <textarea name="description" id="description" rows="10" cols="80"></textarea>
                                         </div>
@@ -613,9 +613,7 @@
                     status: {
                         required: true,
                     },
-                    description: {
-                        required: true,
-                    },
+                   
                 },
                 messages: {
 
@@ -690,7 +688,9 @@
                         var variables = response.config_val;
                         //put  item details in all input fields
                         $("#viewModal").find(".view_title").text(item.title);
-                        $("#viewModal").find(".view_des").text(item.description);
+                        let rawData = item.description; // Your data with HTML tags
+                        let cleanData = rawData.replace(/<\/?[^>]+(>|$)/g, "");
+                        $("#viewModal").find(".view_des").text(cleanData);
                         // $("#viewModal").find(".view_link").html('<a href="' + item.link + '" target="_blank">View Link</a>');
                         const startdate = moment(item.start_date);
                         $("#viewModal .view_start_date").text(startdate.format("DD-MM-YYYY"));

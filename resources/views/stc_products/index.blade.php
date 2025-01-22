@@ -15,7 +15,7 @@
                             <div class="owl-item {{ $key == 0 ? 'active' : '' }}" style="width: 1116px; margin-left: 10px;">
                                 <div class="item">
                                     <div class="slider_contant">
-                                        <h5>أفضل المنتجات</h5>
+                                        
                                         <h1>{{$slider->title}}</h1>
                                         <p>{!! $slider->description !!}</p>
                                         <button type="button" class="btn btn-hero" id="btnn">المزيد من المعلومات
