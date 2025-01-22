@@ -32,7 +32,12 @@ class HomeController extends Controller
 
    public function index()
 {
-    $customerType = Auth::guard('local')->user()->user_type;
+    
+    if(Auth::guard('local')->user()){
+        $customerType = Auth::guard('local')->user()->user_type;  
+    }else{
+        $customerType = "normal";
+    }
     $sliders = Slider::where('customer_type', $customerType)->orWhere('customer_type', 'all')->get();
     $brands = Brands::all();
     $products = Product::where('new_products', 'yes')
