@@ -19,7 +19,7 @@ jobs:
     - name: Directory Permissions
       name: Set Permissions on repository files
       run: |
-        # Fix permissions for files and directories under the repository
+        # Fix permissions for files and directories under the repositor
         sudo chown -R ubuntu:ubuntu /var/www/orbitnapp.com/pcatalog.orbitnapp.com/actions-runner/_work/product_catalog/product_catalog/
         sudo chmod -R 777 /var/www/orbitnapp.com/pcatalog.orbitnapp.com/actions-runner/_work/product_catalog/product_catalog/
     - name: Clear cache directory
