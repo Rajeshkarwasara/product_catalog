@@ -17,7 +17,6 @@ jobs:
         php-version: '8.0'
     - uses: actions/checkout@v3
     - name: Directory Permissions
-      name: Set Permissions on repository files
       run: |
         # Fix permissions for files and directories under the repositor
         sudo chown -R ubuntu:ubuntu /var/www/orbitnapp.com/pcatalog.orbitnapp.com/actions-runner/_work/product_catalog/product_catalog/
