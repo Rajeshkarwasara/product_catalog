@@ -22,6 +22,7 @@ use App\Http\Controllers\EnquiryController;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -31,7 +32,8 @@ class HomeController extends Controller
 
    public function index()
 {
-    $sliders = Slider::limit(12)->get();
+    $customerType = Auth::guard('local')->user()->user_type;
+    $sliders = Slider::where('customer_type', $customerType)->orWhere('customer_type', 'all')->get();
     $brands = Brands::all();
     $products = Product::where('new_products', 'yes')
     ->orWhere('best_seller', 'yes')

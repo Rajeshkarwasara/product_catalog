@@ -10,6 +10,7 @@
                 <div class="owl-stage-outer">
                     <div class="owl-stage"
                         style="transform: translate3d(4504px, 0px, 0px); transition: 0.25s; width: 7882px;">
+                        
                         @foreach($sliders as $key => $slider)
                             <div class="owl-item {{ $key == 0 ? 'active' : '' }}" style="width: 1116px; margin-left: 10px;">
                                 <div class="item">
