@@ -715,7 +715,7 @@
             $('#offcanvasAddUserLabel').text('Update User');
             //  alert(id)
             // $("#offcanvasAddUser").modal('show');
-            $("#pass").hide();
+          
             $("#con_pass").hide();
             $.ajax({
                 type: "POST",
