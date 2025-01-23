@@ -193,6 +193,7 @@ class SliderController extends Controller
         $msg = [
             'title.unique' => 'The title has already been taken.',
             'image.mimetypes' => 'Slider Image/Video must be a JPG, JPEG,  PNG or VIDEO file.',
+            'image.dimensions'=>'The image must be exactly 430 pixels wide and 700 pixels tall',
 
         ];
 
