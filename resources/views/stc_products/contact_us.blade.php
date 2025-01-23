@@ -1,6 +1,5 @@
 @extends('layouts.stc_product.header')
 @section('content')
-
 <div class="breadcrumb_card">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
@@ -114,7 +113,7 @@
                                 <h3>اتصل بنا الآن</h3>
                                 <p>نحن متاحون عبر الإنترنت من الساعة 9:00 صباحًا حتى 5:00 مساءً (GMT95:45) تحدث معنا
                                     الآن</p>
-                                <div class="num"><a href="tel:+1-202-555-0126">+1-202-555-0126</a></div>
+                                <div class="num"><a href="tel:+1-202-555-0126">00970592350011</a></div>
                                 <button type="button" href="tel:+1-202-555-0126" class="btn btn-call">اتصل الان <svg
                                         xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                                         width="24px" fill="#5f6368">
@@ -197,9 +196,10 @@
     <div class="container">
         <div class="contact_map_card">
             <h2>تجدنا على خريطة جوجل</h2>
-            <iframe width="100%" height="460px"
+            <!-- <iframe width="100%" height="460px"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96714.68291250926!2d-74.05953969406828!3d40.75468158321536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2588f046ee661%3A0xa0b3281fcecc08c!2sManhattan%2C%20Nowy%20Jork%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1672242259543!5m2!1spl!2spl"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+                <iframe width="100%" height="460px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54004.078150861365!2d35.20647890076008!3d32.22430286775324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ce0f650425697%3A0x7f0ba930bd153d84!2sNablus!5e0!3m2!1sen!2sin!4v1737606378344!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </div>

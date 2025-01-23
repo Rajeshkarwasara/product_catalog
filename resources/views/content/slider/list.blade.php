@@ -141,7 +141,7 @@
                                                 class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
                                             </div>
                                             <small style="position:relative;top:-9px;"> &nbsp;(Only formats are allowed:
-                                                jpeg, jpg, png, mp4)</small>
+                                                jpeg, jpg, png, mp4,size:width=430,height=700)</small>
                                         </div>
                                         {{-- <div class="col-md-3 mb-3">
                                             <div class="image-border-shap">
@@ -688,9 +688,9 @@
                         var variables = response.config_val;
                         //put  item details in all input fields
                         $("#viewModal").find(".view_title").text(item.title);
-                        let rawData = item.description; // Your data with HTML tags
-                        let cleanData = rawData.replace(/<\/?[^>]+(>|$)/g, "");
-                        $("#viewModal").find(".view_des").text(cleanData);
+                        var strippedDescription = $("<div>").html(item.description).text();
+                        $("#viewModal").find(".view_des").text(strippedDescription);
+                        // $("#viewModal").find(".view_des").text(item.description);
                         // $("#viewModal").find(".view_link").html('<a href="' + item.link + '" target="_blank">View Link</a>');
                         const startdate = moment(item.start_date);
                         $("#viewModal .view_start_date").text(startdate.format("DD-MM-YYYY"));
@@ -699,11 +699,11 @@
 
                         var fileName1 = item.image;
                         var imagePath1 = '/uploads/slider_image/' + fileName1;
-                        $('#imagePreviewContainer').html('<img>').show();
+                        // $('#imagePreviewContainer').html('<img>').show();
                         // Check if the file is a video or image
                         var extension = fileName1.split('.').pop().toLowerCase();
                         
-                        // alert(extension);
+                        //  alert(extension);
                         if (extension === 'jpg' || extension === 'jpeg' || extension === 'png' || extension === 'gif') {
                             // Create an <img> tag
                             var imgTag1 = $('<img>').attr('src', imagePath1).attr('alt', 'Image');
@@ -829,11 +829,11 @@
 
 
 
-                        if (editorInstance) {
-                            editorInstance.setData(item.description); // Set the CKEditor content
-                        } else {
-                            console.error('CKEditor instance is not available.');
-                        }
+                        // if (editorInstance) {
+                        //     editorInstance.setData(item.description); // Set the CKEditor content
+                        // } else {
+                        //     console.error('CKEditor instance is not available.');
+                        // }
 
                         var fileName = item.image;
                         var imagePath = '/uploads/slider_image/' + fileName;

@@ -38,9 +38,9 @@
                     </div>
                     <p>دعم العملاء:</p>
                     <div class="phone_foot">
-                        <a href="tel:(629) 555-0129">(629) 555-0129</a>
+                        <a href="tel:(629) 555-0129">00970592350011</a>
                     </div>
-                    <p>4517 واشنطن أفينيو، مانشستر، كنتاكي 39495</p>
+                    <p>Hesba St., Nablus, West Bank, Palestine</p>
                     <div class="phone_foot">
                         <a href="mailto:معلومات@test.com">معلومات@test.com</a>
                     </div>
