@@ -715,7 +715,7 @@
             $('#offcanvasAddUserLabel').text('Update User');
             //  alert(id)
             // $("#offcanvasAddUser").modal('show');
-          
+         
             $("#con_pass").hide();
             $.ajax({
                 type: "POST",
@@ -738,7 +738,7 @@
                         $("#addEditForm").find("input[name='last_name']").val(item.last_name);
                         $("#addEditForm").find("input[name='email']").val(item.email);
                         $("#addEditForm").find("input[name='phone']").val(item.phone);
-                        // $("#addEditForm").find("input[name='dob']").val(item.dob);
+                        $("#addEditForm").find("input[name='password']").val("");
                         $("#addEditForm").find("select[name='user_type']").val(item.user_type);
                         var fileName = item.image;
                         var imagePath = '/uploads/customer_profile_img/' + fileName;
