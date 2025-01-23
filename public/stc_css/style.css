@@ -226,7 +226,7 @@ button#categoryDropdown {
 /*  machine-text-carousel-css-start */
 .hero_slider .hero_carousel .item {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
   
