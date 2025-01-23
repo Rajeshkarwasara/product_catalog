@@ -187,7 +187,7 @@ class SliderController extends Controller
             'date' => 'required',
             'published_status' => 'required',
             'user_type' => 'required',
-
+            'image' => 'nullable|mimetypes:image/*,video/*|dimensions:min_width=400,min_height=600,max_width=430,max_height=700',
             
         ];
         $msg = [
@@ -197,12 +197,13 @@ class SliderController extends Controller
         ];
 
         if (isset($request->id) && $request->id > 0) {
-            $rules['image'] = 'nullable|mimetypes:image/*,video/*';
+            $rules['image'] = 'nullable|mimetypes:image/*,video/*|dimensions:min_width=400,min_height=600,max_width=430,max_height=700';
+
             $rules['title'] = 'required';
 
             $validator = Validator::make($request->all(), $rules, $msg);
         } else {
-            $rules['image'] = 'required|mimetypes:image/*,video/*';
+            $rules['image'] = 'nullable|mimetypes:image/*,video/*|dimensions:max_width=430,max_height=700';
             $rules['title'] = 'required|unique:sliders,title,0,id,deleted_at,NULL';
 
             $validator = Validator::make($request->all(), $rules, $msg);

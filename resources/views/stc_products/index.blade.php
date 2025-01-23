@@ -1,6 +1,14 @@
 @extends('layouts.stc_product.header')
 @section('content')
-
+<style>
+    div#banner-img {
+    width: 50%;
+}
+.owl-nav {
+    display: none
+;
+}
+</style>
 <!-- machine-text-carousel-start -->
 
 <div class="hero_slider">
@@ -26,8 +34,8 @@
                                             </svg>
                                         </button>
                                     </div>
-                                    <div class="hero_images">
-                                        <img src="{{ asset('uploads/slider_image/' . $slider->image) }}" alt="First slide">
+                                    <div class="hero_images" id="banner-img">
+                                        <img src="{{ asset('uploads/slider_image/' . $slider->image) }}" alt="First slide" style="max-width:430px; max-inline-size: 700px;">
                                     </div>
                                 </div>
                             </div>
@@ -36,8 +44,8 @@
                 </div>
                 <div class="owl-nav disabled">
                     <button type="button" role="presentation" class="owl-prev"><span
-                            aria-label="Previous">‹</span></button>
-                    <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
+                            aria-label="Previous"></span></button>
+                    <button type="button" role="presentation" class="owl-next"><span aria-label="Next"></span></button>
                 </div>
                 <!-- <div class="owl-dots">
                     @foreach($sliders as $key => $slider)
@@ -532,9 +540,35 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 <!-- End About Section -->
 
+<script>
+    $(document).ready(function () {
+        $(".hero_carousel").owlCarousel({
+            loop: true, // Enable infinite loop
+            margin: 10, // Add space between items
+            nav: true, // Enable navigation arrows
+            autoplay: true, // Enable auto-slide
+            autoplayTimeout: 2000, // Set time between slides (in milliseconds)
+            autoplayHoverPause: true, // Pause on hover
+            rtl: true, // Enable RTL if needed
+            responsive: {
+                0: {
+                    items: 1 // Show 1 item on small screens
+                },
+                768: {
+                    items: 1 // Show 1 item on medium screens
+                },
+                1200: {
+                    items: 1 // Show 1 item on large screens
+                }
+            }
+        });
+    });
+</script>
 
 <!-- Footer -->
 
