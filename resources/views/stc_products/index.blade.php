@@ -1,9 +1,7 @@
 @extends('layouts.stc_product.header')
 @section('content')
 <style>
-    div#banner-img {
-    width: 50%;
-}
+ 
 .owl-nav {
     display: none
 ;
@@ -35,7 +33,7 @@
                                         </button>
                                     </div>
                                     <div class="hero_images" id="banner-img">
-                                        <img src="{{ asset('uploads/slider_image/' . $slider->image) }}" alt="First slide" style="max-width:430px; max-inline-size: 700px;">
+                                        <img src="{{ asset('uploads/slider_image/' . $slider->image) }}" alt="First slide" style="width: 700px; height:400px;">
                                     </div>
                                 </div>
                             </div>
