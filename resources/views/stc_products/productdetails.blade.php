@@ -184,8 +184,14 @@
                     </div>
                     <form action="{{ route('add_tocart', $productdetails->id) }}" method="POST">
                         <div class="pr_btn">
-
+                        @if(!Auth::guard('local')->check())
+                            <button type="submit" class="btn btn-primary mt-0"><a href="{{route('sign_in')}}" style="color: white;">Add to Cart</a></button>
+                        
+                        @else
                             <button type="submit" class="btn btn-primary mt-0">Add to Cart</button>
+                      
+                        @endif
+                           
 
                             @csrf
                             <input type="hidden" name="price" value="{{ $productdetails->normal_price }}">
