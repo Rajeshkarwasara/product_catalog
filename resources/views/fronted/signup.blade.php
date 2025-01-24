@@ -38,16 +38,18 @@
                     <form method="POST" action="{{route('sign_upData')}}">
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="first_name" class="form-control" value="{{ old('first_name') }}" placeholder="الاسم الكامل"> 
+                            <input type="text" name="first_name" class="form-control" value="{{ old('first_name') }}"
+                                placeholder="الاسم الكامل">
                             @error('first_name')
                                 <span style="color:red;">{{ $message }}</span>
-                            @enderror                           
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" class="form-control" value="{{ old('email') }}" placeholder="بريد إلكتروني" autocomplete="off">
+                            <input type="text" name="email" class="form-control" value="{{ old('email') }}"
+                                placeholder="بريد إلكتروني" autocomplete="off">
                             @error('email')
                                 <span style="color:red;">{{ $message }}</span>
-                            @enderror                                                       
+                            @enderror
                         </div>
                         <!-- <div class="form-group">  
                             <select class="form-select" name="user_type" aria-label="Default select example">
@@ -59,20 +61,23 @@
                         </div>   -->
 
                         <div class="form-group mobile_code">
-                            <input type="number" id="mobile_code" class="form-control" value="{{ old('phone') }}" name="phone">
+                            <input type="number" id="mobile_code" class="form-control" value="{{ old('phone') }}"
+                                name="phone">
                             @error('phone')
                                 <span style="color:red;">{{ $message }}</span>
-                            @enderror                           
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <input type="password" id="password" name="password" class="form-control" placeholder="كلمة المرور" autocomplete="off">
+                            <input type="password" id="password" name="password" class="form-control"
+                                placeholder="كلمة المرور" autocomplete="off">
                             <i class="toggle-password fa fa-fw fa-eye-slash"></i>
                             @error('password')
                                 <span style="color:red;">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="password" id="password" name="password_confirmation" class="form-control" placeholder="تأكيد كلمة المرور">
+                            <input type="password" id="password" name="password_confirmation" class="form-control"
+                                placeholder="تأكيد كلمة المرور">
                             <i class="toggle-password fa fa-fw fa-eye-slash"></i>
                             @error('password_confirmation')
                                 <span style="color:red;">{{ $message }}</span>
@@ -86,7 +91,8 @@
                         </div> -->
 
                         <div class="form-check-sign">
-                            <input class="form-check-input" type="checkbox" name="agree_terms" value="1" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" name="agree_terms" value="1"
+                                id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 هل توافق على شروط وأحكام STC وسياسة الخصوصية؟
                             </label>
@@ -94,8 +100,9 @@
 
                         <!-- <button type="button" class="btn btn-login">اشتراك <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"></path></svg></button> -->
                         <button type="submit" class="btn btn-login">
-                            اشتراك 
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                            اشتراك
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#5f6368">
                                 <path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"></path>
                             </svg>
                         </button>
@@ -107,8 +114,32 @@
                 </div>
             </div>
         </div>
-     </div>
-     @endsection
+    </div>
+   
+    @endsection
+    @push('script')
+        <script>
+
+            // -----Country Code Selection
+            $("#mobile_code").intlTelInput({
+                initialCountry: "in",
+                separateDialCode: true,
+
+            });
+
+        </script>
+         <script>
+        $(".toggle-password").click(function() {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            input = $(this).parent().find("input");
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+    </script>
+    @endpush
 </body>
 
 </html>
