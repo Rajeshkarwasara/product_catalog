@@ -50,7 +50,7 @@ public function add_tocart(Request $request, $productId)
 
         $loyal_price = $product->loyal_price;
         $wholesaler_price = $product->wholesaler_price;
-
+        $normal_price = $product->normal_price;
         // Set price based on user type
         if (Auth::guard('local')->check()) {
             $user = Auth::guard('local')->user();
@@ -58,6 +58,9 @@ public function add_tocart(Request $request, $productId)
                 $price = $loyal_price;
             } elseif ($user->user_type == "wholesaler") {
                 $price = $wholesaler_price;
+            }
+            elseif ($user->user_type == "normal") {
+                $price = $normal_price;
             } else {
                 $price = $product->price; // Default price for normal users
             }

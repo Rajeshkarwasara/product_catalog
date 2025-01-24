@@ -1,28 +1,27 @@
 @extends('layouts.stc_product.header')
 @section('content')
- <style>
+<style>
     .warrent {
-    width: 146px;
-    position: absolute;
-}
-.warrent span {
-    position: relative;
-    float: left;
-    height: 49px;
-    display: flex
-;
-    align-items: center;
-    background: #fff;
-    border-radius: 30px;
-    width: 49px;
-    justify-content: center;
-    margin-top: 8px;
-    font-weight: bolder;
-    font-size: 35px;
-    color: #009ed2;
-}
+        width: 146px;
+        position: absolute;
+    }
 
- </style>
+    .warrent span {
+        position: relative;
+        float: left;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border-radius: 30px;
+        width: 49px;
+        justify-content: center;
+        margin-top: 8px;
+        font-weight: bolder;
+        font-size: 35px;
+        color: #009ed2;
+    }
+</style>
 <div class="breadcrumb_card">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&quot;);"
@@ -141,6 +140,8 @@
                         <div class="product_price">{{$productdetails->loyal_price}}</div>
                     @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "wholesaler")
                         <div class="product_price">{{$productdetails->wholesaler_price}}</div>
+                        @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "normal")
+                                        <div class="product_price">{{$productdetails->normal_price}}</div>
                     @endif
 
 
@@ -184,14 +185,15 @@
                     </div>
                     <form action="{{ route('add_tocart', $productdetails->id) }}" method="POST">
                         <div class="pr_btn">
-                        @if(!Auth::guard('local')->check())
-                            <button type="submit" class="btn btn-primary mt-0"><a href="{{route('sign_in')}}" style="color: white;">Add to Cart</a></button>
-                        
-                        @else
-                            <button type="submit" class="btn btn-primary mt-0">Add to Cart</button>
-                      
-                        @endif
-                           
+                            @if(!Auth::guard('local')->check())
+                                <button type="submit" class="btn btn-primary mt-0"><a href="{{route('sign_in')}}"
+                                        style="color: white;">Add to Cart</a></button>
+
+                            @else
+                                <button type="submit" class="btn btn-primary mt-0">Add to Cart</button>
+
+                            @endif
+
 
                             @csrf
                             <input type="hidden" name="price" value="{{ $productdetails->normal_price }}">
@@ -220,10 +222,10 @@
 
                         </div>
                         @if($productdetails->warranty != 0)
-                        <div class="warrent_images">
-                        <div class="warrent"> <span> {{ $productdetails->warranty}}</span> </div>
-                            <img src="{{ asset('stc_css/images/months_warranty.png')}}" alt="">
-                        </div>
+                            <div class="warrent_images">
+                                <div class="warrent"> <span> {{ $productdetails->warranty}}</span> </div>
+                                <img src="{{ asset('stc_css/images/months_warranty.png')}}" alt="">
+                            </div>
                         @endif
                     </form>
                     <!--  <div class="select_pr">
@@ -366,6 +368,8 @@
                                         <div class="product_price">{{$product->loyal_price}}</div>
                                     @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "wholesaler")
                                         <div class="product_price">{{$product->wholesaler_price}}</div>
+                                    @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "normal")
+                                        <div class="product_price">{{$product->normal_price}}</div>
                                     @endif
                                 </div>
                         </div>
