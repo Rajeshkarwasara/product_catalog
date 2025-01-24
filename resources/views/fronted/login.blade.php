@@ -63,7 +63,7 @@
                                 <path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"></path>
                             </svg></button>
                         <div class="Sign_links">
-                            <!-- <p>ليس لديك حساب؟ <a href="{{route('sign_up')}}">اشتراك</a></p> -->
+                            <p>ليس لديك حساب؟ <a href="{{route('sign_up')}}">اشتراك</a></p>
                         </div>
                     </form>
                 </div>
