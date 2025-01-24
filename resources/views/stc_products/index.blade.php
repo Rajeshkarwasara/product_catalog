@@ -155,6 +155,8 @@
                                         <div class="product_price">{{$product->loyal_price}}</div>
                                     @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "wholesaler")
                                         <div class="product_price">{{$product->wholesaler_price}}</div>
+                                        @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "normal")
+                                        <div class="product_price">{{$product->normal_price}}</div>
                                     @endif
                                 </div>
                             </a>
