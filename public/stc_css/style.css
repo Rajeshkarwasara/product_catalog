@@ -232,8 +232,11 @@ button#categoryDropdown {
   
   .hero_slider .hero_carousel .item img {
     max-width: 100%;
-    height: auto;
+    height: auto;max-width: 770px;
+    max-height: 460px; 
   }
+
+  .hero_images { width: 60%; max-width: 770px; max-height: 460px; overflow: hidden;}
 
   .hero_card {
     background: #F2F4F5;
@@ -260,7 +263,7 @@ button#categoryDropdown {
     background: #3887CD !important;
 }
 .slider_contant {
-    padding: 0 40px;
+    padding: 0 40px;    width: 40%;
 }
 .slider_contant h5 { 
     font-size: 14px; margin: 0;position: relative; color: #3887CD;
