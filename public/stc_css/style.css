@@ -232,11 +232,11 @@ button#categoryDropdown {
   
   .hero_slider .hero_carousel .item img {
     max-width: 100%;
-    height: auto;max-width: 770px;
-    max-height: 460px; 
+    height: auto;max-width: 700px;
+    max-height: 400px; 
   }
 
-  .hero_images { width: 60%; max-width: 770px; max-height: 460px; overflow: hidden;}
+  .hero_images { width: 60%; max-width: 700px; max-height: 400px; overflow: hidden;}
 
   .hero_card {
     background: #F2F4F5;
