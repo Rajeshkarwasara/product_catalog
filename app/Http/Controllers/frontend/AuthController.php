@@ -185,7 +185,7 @@ class AuthController extends Controller
             return redirect()->back()->with(['failed' => 'Your account is not registered']);
         }
 
-        if (Auth::guard('local')->attempt(['email' => $email, 'password' => $password])) {
+        if (Auth::guard('local')->attempt(['email' => $email, 'password' => $password,'status'=>'1'])) {
             // dd(auth()->guard('local')->user());
             if (isset($_COOKIE['cart_session'])) {
 
@@ -306,6 +306,21 @@ class AuthController extends Controller
         Auth::guard('local')->logout();
         return redirect()->route('index')->with(['message' => 'Logout successfully']);
     }
+// public function log_out(Request $request)
+// {
+//     $user = Auth::guard('local')->user();
+
+//     // Check if the user exists and is inactive
+//     if ($user && $user->status == 2) { // Assuming 0 is for 'inactive' status
+//         Auth::guard('local')->logout();
+//         return redirect()->route('index')->with(['message' => 'You have been logged out due to inactivity.']);
+//     }
+
+//     // Normal logout process for active users
+//     Auth::guard('local')->logout();
+//     return redirect()->route('index')->with(['message' => 'Logout successfully']);
+// }
+
 
     public function log_inotp(Request $request)
     {

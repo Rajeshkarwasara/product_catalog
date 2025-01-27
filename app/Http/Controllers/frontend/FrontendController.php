@@ -24,76 +24,69 @@ use Illuminate\Support\Facades\Cookie;
 
 class FrontendController extends Controller
 {
-     
 
-public function add_tocart(Request $request, $productId)
-{
-    // Get the current cart from the cookie
-    $cart = json_decode(Cookie::get('cart', '[]'), true);
 
-    // Check if the product already exists in the cart
-    $found = false;
-    foreach ($cart as &$item) {
-        if ($item['product_id'] == $productId) {
-            // If the product is already in the cart, update the quantity
-            $item['quantity'] += $request->qty;
-            // Recalculate the total price based on updated quantity
-            $item['price'] = $item['price_per_unit'] * $item['quantity']; // Update total price
-            $found = true;
-            break;
-        }
-    }
-    $cartdetails = new Cart();
-    $cartdetails->user_id =  $user = Auth::guard('local')->user()->id;
-    $cartdetails->product_id = $productId;
-    $cartdetails->qty =  $request->qty;
-    $cartdetails->save();
-    // $cartdetails->price =  $user = Auth::guard('local')->user()->id;
-    // $cartdetails->total_price =  $user = Auth::guard('local')->user()->id;
+    public function add_tocart(Request $request, $productId)
+    {
+        // Get the current cart from the cookie
+        $cart = json_decode(Cookie::get('cart', '[]'), true);
 
-    // If the product is not found, add a new product to the cart
-    if (!$found) {
-        $product = Product::find($productId);
-
-        $loyal_price = $product->loyal_price;
-        $wholesaler_price = $product->wholesaler_price;
-        $normal_price = $product->normal_price;
-        // Set price based on user type
-        if (Auth::guard('local')->check()) {
-            $user = Auth::guard('local')->user();
-            if ($user->user_type == "loyal") {
-                $price = $loyal_price;
-            } elseif ($user->user_type == "wholesaler") {
-                $price = $wholesaler_price;
+        // Check if the product already exists in the cart
+        $found = false;
+        foreach ($cart as &$item) {
+            if ($item['product_id'] == $productId) {
+                // If the product is already in the cart, update the quantity
+                $item['quantity'] += $request->qty;
+                // Recalculate the total price based on updated quantity
+                $item['price'] = $item['price_per_unit'] * $item['quantity']; // Update total price
+                $found = true;
+                break;
             }
-            elseif ($user->user_type == "normal") {
-                $price = $normal_price;
+        }
+      
+
+        // If the product is not found, add a new product to the cart
+        if (!$found) {
+            $product = Product::find($productId);
+
+            $loyal_price = $product->loyal_price;
+            $wholesaler_price = $product->wholesaler_price;
+            $normal_price = $product->normal_price;
+            // Set price based on user type
+            if (Auth::guard('local')->check()) {
+                $user = Auth::guard('local')->user();
+                if ($user->user_type == "loyal") {
+                    $price = $loyal_price;
+                } elseif ($user->user_type == "wholesaler") {
+                    $price = $wholesaler_price;
+                } elseif ($user->user_type == "normal") {
+                    $price = $normal_price;
+                } else {
+                    $price = $product->price; // Default price for normal users
+                }
             } else {
-                $price = $product->price; // Default price for normal users
+                $price = $product->price; // Default price if no user is logged in
             }
-        } else {
-            $price = $product->price; // Default price if no user is logged in
+
+            // Calculate the total price based on quantity
+            $total_price = $price * $request->qty;
+
+            $cart[] = [
+                'product_id' => $productId,
+                'price' => $total_price,
+                'price_per_unit' => $price, // Store the price per unit for quantity-based recalculation
+                'quantity' => $request->qty,
+                'name' => $product->name,
+                'loyal_price' => $loyal_price,
+                'wholesaler_price' => $wholesaler_price,
+            ];
         }
 
-        // Calculate the total price based on quantity
-        $total_price = $price * $request->qty;
+        // Store the updated cart back in the cookie (valid for 7 days)
+        Cookie::queue('cart', json_encode($cart), (60 * 24 * 7));
 
-        $cart[] = [
-            'product_id' => $productId,
-            'price' => $total_price,
-            'price_per_unit' => $price, // Store the price per unit for quantity-based recalculation
-            'quantity' => $request->qty,
-            'name' => $product->name,
-            'loyal_price' => $loyal_price,
-            'wholesaler_price' => $wholesaler_price,
-        ];
+        return redirect()->route('cart-page')->with(['message' => 'Product added to cart successfully!']);
     }
-
-    // Store the updated cart back in the cookie (valid for 7 days)
-    Cookie::queue('cart', json_encode($cart), (60 * 24 * 7));
-
-    return redirect()->route('cart-page')->with(['message' => 'Product added to cart successfully!']);
-}
 
 
 
@@ -103,7 +96,7 @@ public function add_tocart(Request $request, $productId)
         // dd($request->all());
         // Retrieve cart from the cookie
         $cart = json_decode($request->cookie('cart'), true);
-// dd($cart);
+        // dd($cart);
         // Check if the cart exists and the item ID is provided
         if ($cart && $request->has('item_id')) {
             $itemId = $request->input('item_id');
@@ -122,30 +115,30 @@ public function add_tocart(Request $request, $productId)
     }
 
 
-public function add_cartpage()
-{
-    $cart = json_decode(Cookie::get('cart', '[]'), true);
+    public function add_cartpage()
+    {
+        $cart = json_decode(Cookie::get('cart', '[]'), true);
 
-    $totalSubTotal = 0;
-    $shippingCost = 0;
-    $tax = 0;
-    $totalItems = 0;
+        $totalSubTotal = 0;
+        $shippingCost = 0;
+        $tax = 0;
+        $totalItems = 0;
 
-    foreach ($cart as $item) {
-        $totalSubTotal += $item['price'];
-        $totalItems += $item['quantity'];
+        foreach ($cart as $item) {
+            $totalSubTotal += $item['price'];
+            $totalItems += $item['quantity'];
+        }
+
+        $tax = $totalSubTotal * 0.05;
+        $shippingCost = 0; // Update based on your shipping logic
+        $totalAmount = $totalSubTotal + $shippingCost + $tax;
+
+        $userId = auth()->id();
+        $cartItems = Cart::with('product')->where('user_id', $userId)->get();
+        $categorys = Category::all();
+
+        return view('stc_products.cart-page', compact('cartItems', 'categorys', 'totalSubTotal', 'shippingCost', 'tax', 'totalAmount', 'totalItems'));
     }
-
-    $tax = $totalSubTotal * 0.05;
-    $shippingCost = 0; // Update based on your shipping logic
-    $totalAmount = $totalSubTotal + $shippingCost + $tax;
-
-    $userId = auth()->id();
-    $cartItems = Cart::with('product')->where('user_id', $userId)->get();
-    $categorys = Category::all();
-
-    return view('stc_products.cart-page', compact('cartItems', 'categorys', 'totalSubTotal', 'shippingCost', 'tax', 'totalAmount', 'totalItems'));
-}
 
 
 

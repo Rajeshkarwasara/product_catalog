@@ -245,7 +245,7 @@
                         <div class="brand_img">
                             <img src="{{asset('uploads/Category/' . $category->image)}}" alt="">
                         </div>
-                        <h4>تنظيف غسالة الضغط</h4>
+                        <h4>{{$category->name}}</h4>
                     </div>
                 @endforeach
                 <!-- <div class="item">

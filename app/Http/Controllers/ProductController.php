@@ -777,10 +777,10 @@ public function getProductsByCategory(Request $request)
         @header('Content-type: text/html; charset=utf-8');
         echo $re;
     }
-    // public function getSubcategories($id)
-    // {
-    //     $subcategories = SubCategory::where('category_id', $id)->get();
-    //     return response()->json(['subcategories' => $subcategories]);
-    // }
+    public function getSubcategories($id)
+    {
+        $subcategories = SubCategory::where('category_id', $id)->get();
+        return response()->json(['subcategories' => $subcategories]);
+    }
 
 }
