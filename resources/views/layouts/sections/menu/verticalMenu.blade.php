@@ -95,12 +95,12 @@
                 <div>Category Management</div>
             </a>
         </li>
-        <li class="menu-item {{ $_SERVER['REQUEST_URI'] == '/subcategory' ? 'active' : '' }}">
+        <!-- <li class="menu-item {{ $_SERVER['REQUEST_URI'] == '/subcategory' ? 'active' : '' }}">
             <a href="/subcategory" class="menu-link">
                 <i class="menu-icon bx bx-layer"></i>
                 <div>SubCategory Management</div>
             </a>
-        </li>
+        </li> -->
         <li class="menu-item {{ $_SERVER['REQUEST_URI'] == '/brands' ? 'active' : '' }}">
             <a href="/brands" class="menu-link">
                 <i class="menu-icon bx bx-store"></i>

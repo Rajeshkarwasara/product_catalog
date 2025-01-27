@@ -144,6 +144,7 @@
                                 <th>{{ __('Image')}}</th>
                                 <!-- <th>{{ __('sku')}}</th> -->
                                 <th>{{ __('Stock Status')}}</th>
+                                <th>{{ __('Status')}}</th>
                                 <th>{{ __('Created At')}}</th>
                                 <th>{{ __('Action')}}</th>
                             </tr>
@@ -240,7 +241,9 @@ $(document).ready(function() {
                 mData: 'stock_status'
             },
 
-           
+            {
+                mData: 'status'
+            },
             {
                 mData: 'created_at'
             },

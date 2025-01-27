@@ -445,6 +445,8 @@ class CustomerController extends Controller
                         $item->status = '1';
                     } else {
                         $item->status = '2';
+                        Auth::guard('local')->logout($item);
+                       
                     }
                 }
                 $item->save();
