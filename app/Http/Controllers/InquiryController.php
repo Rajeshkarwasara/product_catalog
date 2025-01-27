@@ -2,32 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductImage;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
-use App\Models\ProductOrder;
-use App\Models\Product;
+use PDF;
+use Mail;
+use App\Models\Brand;
 use App\Models\Order;
+use App\Models\Staff;
+use DataTables, Auth;
+use App\Models\Coupon;
+use App\Models\Dealer;
+use App\Models\Contact;
+use App\Models\Product;
+use App\Models\Category;
 use App\Models\Customer;
+use App\Models\MasterUnit;
+use App\Models\SubCategory;
+use Illuminate\Support\Str;
+use App\Models\ProductImage;
+use App\Models\ProductOrder;
+use Illuminate\Http\Request;
+use App\Models\CompanySetting;
 use App\Models\CustomerAddress;
 use App\Models\ProjectCustomer;
-use App\Models\Dealer;
-use App\Models\Category;
-use App\Models\Coupon;
-use App\Models\SubCategory;
-use App\Models\Brand;
-use App\Models\MasterUnit;
-use App\Models\CompanySetting;
-use Illuminate\Support\Str;
-use App\Models\Staff;
+use Illuminate\Support\Facades\DB;
 use App\Models\MasterEmailTemplate;
 use App\Models\MasterCompanySetting;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
-use Mail;
-use DataTables, Auth;
-use Illuminate\Support\Facades\DB;
-use PDF;
+use Illuminate\Support\Facades\Validator;
 
 
 class InquiryController extends Controller
@@ -94,60 +95,118 @@ class InquiryController extends Controller
 
     public function getData($search = null, $orderby = null, $order = null, $request = null)
     {
-        $q = Order::select('orders.*', DB::raw("CONCAT(customers.first_name, ' ', customers.last_name) as customer_name"), 'customers.phone as mobile_number', DB::raw("COUNT(product_orders.product_id) as product_count"))
-            ->leftJoin('customers', 'customers.id', '=', 'orders.customer_id')
-            ->leftjoin('product_orders', 'product_orders.order_id', '=', 'orders.id');
+        // $q = Order::select('orders.*', DB::raw("CONCAT(customers.first_name, ' ', customers.last_name) as customer_name"), 'customers.phone as mobile_number', DB::raw("COUNT(product_orders.product_id) as product_count"))
+        //     ->leftJoin('customers', 'customers.id', '=', 'orders.customer_id')
+        //     ->leftjoin('product_orders', 'product_orders.order_id', '=', 'orders.id');
+        $q = Contact::query();
+        // $orderby = $orderby ? 'orders.' . $orderby : 'orders.id';
+        // $order = $order ? $order : 'desc';
+        // if ($search && !empty($search)) {
+        //     $q->where(function ($query) use ($search) {
 
-        $orderby = $orderby ? 'orders.' . $orderby : 'orders.id';
-        $order = $order ? $order : 'desc';
-        if ($search && !empty($search)) {
-            $q->where(function ($query) use ($search) {
+        //         $query->where('name', 'LIKE', '%' . $search . '%');
+        //     });
+        // }
+        // if (isset($request['status']) && $request['status'] != '') {
+        //     $q->where('orders.order_status', $request['status']);
+        // }
+        // if (isset($request['stock_status']) && $request['stock_status'] != '') {
+        //     $q->where('orders.order_status', $request['stock_status']);
+        // }
+        // if (isset($request['payment_type']) && $request['payment_type'] != '') {
+        //     $q->where('orders.payment_type', $request['payment_type']);
+        // }
+        // if (isset($request['dealer']) && $request['dealer'] != '') {
+        //     $q->where('orders.dealer_id', $request['dealer']);
+        // }
 
-                $query->where('name', 'LIKE', '%' . $search . '%');
-            });
-        }
-        if (isset($request['status']) && $request['status'] != '') {
-            $q->where('orders.order_status', $request['status']);
-        }
-        if (isset($request['stock_status']) && $request['stock_status'] != '') {
-            $q->where('orders.order_status', $request['stock_status']);
-        }
-        if (isset($request['payment_type']) && $request['payment_type'] != '') {
-            $q->where('orders.payment_type', $request['payment_type']);
-        }
-        if (isset($request['dealer']) && $request['dealer'] != '') {
-            $q->where('orders.dealer_id', $request['dealer']);
-        }
+        // if (isset($request['name']) && !empty($request['name'])) {
+        //     $search_all = $request['name'];
+        //     $q->where(function ($query) use ($search_all) {
+        //         $query->where(DB::raw("CONCAT(customers.first_name, ' ', customers.last_name)"), 'LIKE', '%' . $search_all . '%')
+        //             ->orWhere('customers.phone', 'LIKE', '%' . $search_all . '%');
+        //     });
+        // }
 
-        if (isset($request['name']) && !empty($request['name'])) {
-            $search_all = $request['name'];
-            $q->where(function ($query) use ($search_all) {
-                $query->where(DB::raw("CONCAT(customers.first_name, ' ', customers.last_name)"), 'LIKE', '%' . $search_all . '%')
-                    ->orWhere('customers.phone', 'LIKE', '%' . $search_all . '%');
-            });
-        }
-
-        if (isset($request['id_search']) && !empty($request['id_search'])) {
-            $id_search = $request['id_search'];
-            $q->where(function ($query) use ($id_search) {
-                $query->where('orders.id', 'LIKE', '%' . $id_search . '%');
-            });
-        }
-
-
-
-        if (isset($request['start_range']) && !empty($request['start_range']) && isset($request['end_range']) && !empty($request['end_range'])) {
-            $start_range = $request['start_range'];
-            $end_range = $request['end_range'];
+        // if (isset($request['id_search']) && !empty($request['id_search'])) {
+        //     $id_search = $request['id_search'];
+        //     $q->where(function ($query) use ($id_search) {
+        //         $query->where('orders.id', 'LIKE', '%' . $id_search . '%');
+        //     });
+        // }
 
 
-            $q->whereBetween(DB::raw('DATE_FORMAT(orders.created_at, "%Y-%m-%d")'), [$start_range, $end_range]);
-        }
 
-        $response = $q->groupBy('product_orders.order_id')
-            ->orderBy($orderby, $order);
+        // if (isset($request['start_range']) && !empty($request['start_range']) && isset($request['end_range']) && !empty($request['end_range'])) {
+        //     $start_range = $request['start_range'];
+        //     $end_range = $request['end_range'];
+
+
+        //     $q->whereBetween(DB::raw('DATE_FORMAT(orders.created_at, "%Y-%m-%d")'), [$start_range, $end_range]);
+        // }
+
+        // $response = $q->groupBy('product_orders.order_id')
+        //     ->orderBy($orderby, $order);
+        $response = $q;
         return $response;
     }
+
+//     public function getData(Request $request)
+// {
+//     $q = Contact::query();
+
+//     // Default ordering
+//     $orderby = $request->orderby ? 'orders.' . $request->orderby : 'orders.id';
+//     $order = $request->order ? $request->order : 'desc';
+
+//     // Search by name
+//     if ($search = $request->search) {
+//         $q->where('name', 'LIKE', '%' . $search . '%');
+//     }
+
+//     // Filter by various criteria
+//     $filters = [
+//         'status' => 'orders.order_status',
+//         'stock_status' => 'orders.order_status',
+//         'payment_type' => 'orders.payment_type',
+//         'dealer' => 'orders.dealer_id'
+//     ];
+
+//     foreach ($filters as $key => $column) {
+//         if ($request->filled($key)) {
+//             $q->where($column, $request->$key);
+//         }
+//     }
+
+//     // Advanced search by customer name or phone
+//     if ($name = $request->name) {
+//         $q->where(function ($query) use ($name) {
+//             $query->where(DB::raw("CONCAT(customers.first_name, ' ', customers.last_name)"), 'LIKE', '%' . $name . '%')
+//                 ->orWhere('customers.phone', 'LIKE', '%' . $name . '%');
+//         });
+//     }
+
+//     // Search by order ID
+//     if ($idSearch = $request->id_search) {
+//         $q->where('orders.id', 'LIKE', '%' . $idSearch . '%');
+//     }
+
+//     // Filter by date range
+//     if ($request->filled(['start_range', 'end_range'])) {
+//         $startRange = $request->start_range;
+//         $endRange = $request->end_range;
+
+//         $q->whereBetween('orders.created_at', [$startRange, $endRange]);
+//     }
+
+//     // Apply grouping and sorting
+//     $response = $q->groupBy('product_orders.order_id')
+//         ->orderBy($orderby, $order)
+//         ->get();
+
+//     return $response;
+// }
+
     //get data from database for dat table --------------------------------------------------------- End
 
     //Load Datatable or list view file  --------------------------------------------------------- Start
@@ -192,7 +251,7 @@ class InquiryController extends Controller
             $response = $this->getData($search, $sortableColumns[$orderby], $order, $s_data);
             // $response->whereBetween('devlopments.created_at', [$start_date, $end_date]);
 
-            $response = $response->offset($start)->limit($limit)->orderBy('orders.id', 'desc')->get();
+            $response = $response->offset($start)->limit($limit)->orderBy('contact.id', 'desc')->get();
             if (!$response) {
                 $data = [];
                 $paging = [];
@@ -209,59 +268,13 @@ class InquiryController extends Controller
             // print_r($data);die;
             foreach ($data as $value) {
                 $row['id'] = $start + $i;
-                $row['order_id'] = $value->id;
-                $row['name'] = $value->customer_name;
-                $row['mobile_number'] = $value->mobile_number;
+               
+                $row['name'] = $value->name;
+                $row['email'] = $value->email;
+                $row['phone'] = $value->phone;
                 $row['message'] = $value->message;
-                $row['price'] = $value->total_amount;
-                $order_status = '';
-                if ($value->order_status == 0) {
-                    $order_status = 'Pending';
-                } elseif ($value->order_status == 1) {
-                    $order_status = 'Confirmed';
-                } elseif ($value->order_status == 2) {
-                    $order_status = 'Shipped';
-                } elseif ($value->order_status == 3) {
-                    $order_status = 'Intransit';
-                } elseif ($value->order_status == 4) {
-                    $order_status = 'Delivered';
-                } elseif ($value->order_status == 5) {
-                    $order_status = 'Cancelled ';
-                }
-                $row['order_status'] = $order_status;
-                $row['count'] = $value->product_count;
-
-
-                $paymentStatus = $value->payment_status;
-                $selectedPending = ($paymentStatus === "0") ? 'selected' : '';
-                $selectedPaid = ($paymentStatus === "1") ? 'selected' : '';
-
-                $borderColor = ($paymentStatus === "0") ? '#FFB6C1' : ' #90EE90';
-
-                $row['stock_status'] = '<select data-id="' . $value->id . '" class="form-control custom-select1 payment_status" name="payment_status" style="padding:6px!important; background-color: ' . $borderColor . ';">
-                                                                <option value="0" ' . $selectedPending . '>Pending</option>
-                                                                <option value="1" ' . $selectedPaid . '>Paid</option>
-                                                            </select>';
-                if (Auth::user()->can('master_edit_products')) {
-                    $row['status'] =  ' <label class="switch">
-                                                <input class="status-checkbox" type="checkbox" ' . ($value->status == '2' ? 'checked' : '') . ' data-id=' . $value->id . '>
-                                                <span class="slider round"></span>
-                                            </label>';
-                } else {
-                    $row['status'] = '<label class="switch">
-                                                <input disabled type="checkbox" ' . ($value->status == '2' ? 'checked' : '') . ' data-id=' . $value->id . '>
-                                                <span class="slider round"></span>
-                                        </label>';
-                }
-
-                $row['created_at'] =  date("d-m-Y", strtotime($value->created_at));
-
-
-                if (isset($value->dealer_id) && !empty($value->dealer_id)) {
-                    $dealer_id_val = $value->dealer_id;
-                } else {
-                    $dealer_id_val = "0";
-                }
+               
+              
                 // $edit = '';
                 // // $edit = '<div class="table-actions"><a href="javascript:void(0)" onclick="addEditForm(' . $value->id . ')" data-toggle="tooltip" title="Edit"><i class="ik ik-edit-2 f-16 mr-1 text-green"></i></a> ';
 

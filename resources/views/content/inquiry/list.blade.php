@@ -128,12 +128,13 @@ $urlComponents = explode('/', $currentURL);
                             <tr>
                                 <th>{{ __('##')}}</th>
                                 <th>{{ __('Name')}}</th>
+                                <th>{{ __('email')}}</th>
                                 <th>{{ __('Mobile Number')}}</th>
-                                <th>{{ __('Product Count')}}</th>
-                                <th>{{ __('Status')}}</th>
+                                <!-- <th>{{ __('Product Count')}}</th> -->
+                                <!-- <th>{{ __('Status')}}</th> -->
                                 <th>{{ __('Message')}}</th>
 
-                                <th style="min-width:110px;">{{ __('Inquiry Date')}}</th>
+                                <!-- <th style="min-width:110px;">{{ __('Inquiry Date')}}</th> -->
                                 <th>{{ __('Action')}}</th>
                             </tr>
                         </thead>
@@ -261,23 +262,19 @@ if (in_array("offline_orders", $urlComponents)) {
                     mData: 'name'
                 },
                 {
-                    mData: 'mobile_number'
+                    mData: 'email'
                 },
                 {
-                    mData: 'count'
+                    mData: 'phone'
                 },
-                {
-                    mData: 'order_status'
-                },
+              
                 {
                     mData: 'message',
                     render: function(data, type, row) {
                         return data.length > 10 ? data.substring(0, 10) + '...' : data;
                     }
                 },
-                {
-                    mData: 'created_at'
-                },
+               
                 {
                     mData: 'actions'
                 },
