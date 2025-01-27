@@ -135,7 +135,7 @@ $urlComponents = explode('/', $currentURL);
                                 <th>{{ __('Message')}}</th>
 
                                 <!-- <th style="min-width:110px;">{{ __('Inquiry Date')}}</th> -->
-                                <th>{{ __('Action')}}</th>
+                                <!-- <th>{{ __('Action')}}</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -275,9 +275,7 @@ if (in_array("offline_orders", $urlComponents)) {
                     }
                 },
                
-                {
-                    mData: 'actions'
-                },
+                
             ],
             //add attribute on column using id or attribute 
             "aoColumnDefs": [{
