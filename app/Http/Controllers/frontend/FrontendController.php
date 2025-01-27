@@ -43,6 +43,13 @@ public function add_tocart(Request $request, $productId)
             break;
         }
     }
+    $cartdetails = new Cart();
+    $cartdetails->user_id =  $user = Auth::guard('local')->user()->id;
+    $cartdetails->product_id = $productId;
+    $cartdetails->qty =  $request->qty;
+    $cartdetails->save();
+    // $cartdetails->price =  $user = Auth::guard('local')->user()->id;
+    // $cartdetails->total_price =  $user = Auth::guard('local')->user()->id;
 
     // If the product is not found, add a new product to the cart
     if (!$found) {

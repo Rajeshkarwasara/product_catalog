@@ -31,7 +31,11 @@
                 <div class="col-md-7">
                     <div class="contact_form">
                         <h4>لطلب عرض أسعار مجاني، قم بملء النموذج السريع الخاص بنا.</h4>
-
+                        @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                         <form method="POST" action="{{ route('contactsubmit') }}">
                             @csrf
                             <div class="row">
@@ -44,7 +48,7 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <input type="text" id="name" class="form-control" name="name"
-                                            placeholder="الاسم الكامل" required>
+                                            placeholder="الاسم الكامل "required>
                                     </div>
                                 </div>
                             </div>
@@ -69,11 +73,7 @@
                                     <path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"></path>
                                 </svg>
                             </button>
-                            @if (session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
+                          
 
                         </form>
 
