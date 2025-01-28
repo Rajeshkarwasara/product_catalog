@@ -80,12 +80,10 @@ $urlComponents = explode('/', $currentURL);
                     <div class="col-sm-2 form-group">
                         <select name="stock_status" id="stock_status" class="form-control">
                             <option value="">Select Status</option>
-                            <option value="0">Pending</option>
-                            <option value="1">Confirmed</option>
-                            <option value="2">Shipped</option>
-                            <option value="3">Intransit</option>
-                            <option value="4">Delivered</option>
-                            <option value="5">Cancelled</option>
+                            
+                            <option value="1">pending</option>
+                            <option value="2">complete</option>
+                            <option value="3">Cancelled</option>
 
 
                         </select>
@@ -684,6 +682,7 @@ if (in_array("offline_orders", $urlComponents)) {
     .then(data => {
         if (data.message) {
             toastr.success(data.message);
+            window.location.reload();
         }
     })
     .catch(error => {
