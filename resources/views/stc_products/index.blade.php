@@ -1,11 +1,9 @@
 @extends('layouts.stc_product.header')
 @section('content')
 <style>
- 
-.owl-nav {
-    display: none
-;
-}
+    .owl-nav {
+        display: none;
+    }
 </style>
 <!-- machine-text-carousel-start -->
 
@@ -16,12 +14,12 @@
                 <div class="owl-stage-outer">
                     <div class="owl-stage"
                         style="transform: translate3d(4504px, 0px, 0px); transition: 0.25s; width: 7882px;">
-                        
+
                         @foreach($sliders as $key => $slider)
                             <div class="owl-item {{ $key == 0 ? 'active' : '' }}" style="width: 1116px; margin-left: 10px;">
                                 <div class="item">
                                     <div class="slider_contant">
-                                        
+
                                         <h1>{{$slider->title}}</h1>
                                         <p>{!! $slider->description !!}</p>
                                         <button type="button" class="btn btn-hero" id="btnn">المزيد من المعلومات
@@ -33,7 +31,8 @@
                                         </button>
                                     </div>
                                     <div class="hero_images" id="banner-img">
-                                        <img src="{{ asset('uploads/slider_image/' . $slider->image) }}" alt="First slide" style="width: 700px; height:400px;">
+                                        <img src="{{ asset('uploads/slider_image/' . $slider->image) }}" alt="First slide"
+                                            style="width: 700px; height:400px;">
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +154,7 @@
                                         <div class="product_price">{{$product->loyal_price}}</div>
                                     @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "wholesaler")
                                         <div class="product_price">{{$product->wholesaler_price}}</div>
-                                        @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "normal")
+                                    @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "normal")
                                         <div class="product_price">{{$product->normal_price}}</div>
                                     @endif
                                 </div>
@@ -290,50 +289,37 @@
 <div class="offer_card">
     <div class="container">
         <div class="row">
+        @foreach ($mostproducts as $product)
             <div class="col-md-6">
-                <div class="offer_card_inner dark_bg_o">
-                    <div class="d-flex">
-                        <div class="offer_contant">
-                            <h5>أفضل المنتجات</h5>
-                            <h2>تنظيف غسالة الضغط</h2>
-                            <p>مجموعة مستقلة بمحرك بنزين احترافي مناسب للعمل في المناطق التي يتوفر فيها هذا النوع من
-                                الكهرباء.</p>
+                
+                    <div class="offer_card_inner ">
 
-                            <button type="button" class="btn btn-hero" id="btnn">المزيد من المعلومات <svg
-                                    xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                    width="24px" fill="#5f6368">
-                                    <path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"></path>
-                                </svg></button>
-                        </div>
-                        <div class="imag_offer">
-                            <img src="{{asset('stc_css/images/offer_right.png')}}" alt="">
-                        </div>
+                        <a href="{{ route('productdetails', $product->id) }}">
+                            <div class="d-flex">
+
+                                <div class="offer_contant">
+                                    <h5>أفضل المنتجات</h5>
+                                    <h2>{{$product->name}}</h2>
+                                    <p>{{$product->full_description}}</p>
+
+                                    <button type="button" class="btn btn-hero" id="btnn">المزيد من المعلومات <svg
+                                            xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                            width="24px" fill="#5f6368">
+                                            <path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z">
+                                            </path>
+                                        </svg></button>
+                                </div>
+                                <div class="imag_offer">
+                                    <img src="{{asset('uploads/product/product_image/' . $product->product_image)}}" alt="">
+                                </div>
+
+                            </div>
+                        </a>
 
                     </div>
-                </div>
+                
             </div>
-            <div class="col-md-6">
-                <div class="offer_card_inner ">
-                    <div class="d-flex">
-                        <div class="offer_contant">
-                            <h5>أفضل المنتجات</h5>
-                            <h2>تنظيف غسالة الضغط</h2>
-                            <p>مجموعة مستقلة بمحرك بنزين احترافي مناسب للعمل في المناطق التي يتوفر فيها هذا النوع من
-                                الكهرباء.</p>
-
-                            <button type="button" class="btn btn-hero" id="btnn">المزيد من المعلومات <svg
-                                    xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                    width="24px" fill="#5f6368">
-                                    <path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"></path>
-                                </svg></button>
-                        </div>
-                        <div class="imag_offer">
-                            <img src="{{asset('stc_css//images/offer_left.png')}}" alt="">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
 
         </div>

@@ -74,7 +74,7 @@
 
             <div class="col-md-7">
                 <div class="product_de_text">
-                    <div class="rating d-flex">
+                    <!-- <div class="rating d-flex">
                         <p>(21,671)</p>
                         <h5>4.7</h5>
                         <div class="star_rating d-flex">
@@ -115,7 +115,7 @@
                             </a>
 
                         </div>
-                    </div>
+                    </div> -->
                     <h2>{{ $productdetails->name }}</h2>
                     <p>{{ $productdetails->full_description }}</p>
                     <div class="product_man">
@@ -140,8 +140,8 @@
                         <div class="product_price">{{$productdetails->loyal_price}}</div>
                     @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "wholesaler")
                         <div class="product_price">{{$productdetails->wholesaler_price}}</div>
-                        @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "normal")
-                                        <div class="product_price">{{$productdetails->normal_price}}</div>
+                    @elseif(Auth::guard('local')->check() && Auth::guard('local')->user()->user_type == "normal")
+                        <div class="product_price">{{$productdetails->normal_price}}</div>
                     @endif
 
 
@@ -285,14 +285,7 @@
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
                     tabindex="0">
                     <h3>وصف</h3>
-                    <p>أقوى جهاز MacBook Pro على الإطلاق موجود هنا. مع شريحة M1 Pro أو M1 Max فائقة السرعة - أول شريحة
-                        سيليكون من Apple مصممة للمحترفين - يمكنك الحصول على أداء مبتكر وعمر بطارية مذهل. أضف إلى ذلك
-                        شاشة Liquid Retina XDR المذهلة، وأفضل كاميرا وصوت على الإطلاق في كمبيوتر Mac دفتري، وجميع
-                        المنافذ التي تحتاج إليها. جهاز الكمبيوتر المحمول الأول من نوعه، جهاز MacBook Pro هذا هو وحش.
-                        يأخذ M1 Pro الأداء الاستثنائي لبنية M1 إلى مستوى جديد تمامًا للمستخدمين المحترفين.</p>
-                    <p>حتى أكثر المشاريع طموحًا يمكن التعامل معها بسهولة باستخدام ما يصل إلى 10 مراكز لوحدة المعالجة
-                        المركزية، وما يصل إلى 16 مركزًا لوحدة معالجة الرسومات، ومحرك عصبي مكون من 16 مركزًا، ومحركات
-                        وسائط مخصصة للتشفير وفك التشفير تدعم برامج الترميز H.264، وHEVC، وProRes.</p>
+                    <p>{{ $productdetails->full_description }}</p>
 
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
@@ -307,7 +300,7 @@
                             <tbody>
                                 <tr>
                                     <td>اسم المنتج</td>
-                                    <td>15 لتر/250 بار/7.5 حصان </td>
+                                    <td>{{ $productdetails->name }}</td>
                                 </tr>
                                 <tr>
                                     <td>أبعاد</td>
