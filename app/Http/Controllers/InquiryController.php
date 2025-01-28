@@ -273,8 +273,17 @@ class InquiryController extends Controller
                 $row['email'] = $value->email;
                 $row['phone'] = $value->phone;
                 $row['message'] = $value->message;
-               
-              
+                $row['status'] = '
+                <div class="col-sm-2 form-group">
+                    <select name="status[]" id="status_' . $value->id . '" 
+                            class="form-control" 
+                            onchange="updateStatus(' . $value->id . ', this.value)">
+                        <option value="">Select Status</option>
+                        <option value="1" ' . ($value->status == 1 ? 'selected' : '') . '>Pending</option>
+                        <option value="2" ' . ($value->status == 2 ? 'selected' : '') . '>Complete</option>
+                    </select>
+                </div>';
+           
                 // $edit = '';
                 // // $edit = '<div class="table-actions"><a href="javascript:void(0)" onclick="addEditForm(' . $value->id . ')" data-toggle="tooltip" title="Edit"><i class="ik ik-edit-2 f-16 mr-1 text-green"></i></a> ';
 
@@ -326,7 +335,26 @@ class InquiryController extends Controller
     }
     //Load Datatable or list view file --------------------------------------------------------- End
 
-
+    public function updateStatus(Request $request)
+    {
+        $id = $request->input('id');
+        $status = $request->input('status');
+    
+        if (!$id || !$status) {
+            return response()->json(['message' => 'Invalid request'], 400);
+        }
+    
+        $record = Contact::find($id);
+        if ($record) {
+            $record->status = $status;
+            $record->save();
+    
+            return response()->json(['message' => 'Status updated successfully']);
+        }
+    
+        return response()->json(['message' => 'Record not found'], 404);
+    }
+    
 
     public function create()
     {

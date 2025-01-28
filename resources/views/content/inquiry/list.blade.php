@@ -131,7 +131,7 @@ $urlComponents = explode('/', $currentURL);
                                 <th>{{ __('email')}}</th>
                                 <th>{{ __('Mobile Number')}}</th>
                                 <!-- <th>{{ __('Product Count')}}</th> -->
-                                <!-- <th>{{ __('Status')}}</th> -->
+                                <th>{{ __('Status')}}</th>
                                 <th>{{ __('Message')}}</th>
 
                                 <!-- <th style="min-width:110px;">{{ __('Inquiry Date')}}</th> -->
@@ -267,7 +267,9 @@ if (in_array("offline_orders", $urlComponents)) {
                 {
                     mData: 'phone'
                 },
-              
+                {
+                    mData: 'status'
+                },
                 {
                     mData: 'message',
                     render: function(data, type, row) {
@@ -666,5 +668,28 @@ if (in_array("offline_orders", $urlComponents)) {
             //                     }, 300);
         });
     });
+
+    function updateStatus(id, status) {
+    if (!status) return;
+
+    fetch('/update-status', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({ id: id, status: status })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message) {
+            toastr.success(data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error updating status:', error);
+    });
+}
+
 </script>
 @endpush
