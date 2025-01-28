@@ -133,7 +133,7 @@
                                         width="24px" fill="#5f6368">
                                         <path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"></path>
                                     </svg>
-                                </button>
+                                </button>                                
                             </a>
                         </div>
                     @endif
@@ -162,20 +162,60 @@
                                     <p>المجموع</p>
                                     <h4>₪ {{ number_format($totalAmount, 2) }}</h4>
                                 </div>
-                                <a href="{{ route('enquire_now') }}">
+                                {{-- <a href="{{ route('enquire_now') }}">
                                     <button type="button" class="btn btn-cart w-100">الاستفسار الان
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                                             width="24px" fill="#5f6368">
                                             <path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"></path>
                                         </svg>
                                     </button>
-                                </a>
+                                </a> --}}
+                                <button type="button" class="btn btn-cart w-100" id="openInquiryModal" data-bs-toggle="modal" data-bs-target="#inquiryModal">
+                                    الاستفسار الان
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#5f6368">
+                                        <path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"></path>
+                                    </svg>
+                                </button>                                
                             </div>
                         </div>
                     @endif
 
                 </div>
             @endif
+
+            <div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="inquiryModalLabel">استفسار</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="inquiryForm">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">رسالتك</label>
+                                    <textarea class="form-control" name="message" id="message" rows="4" placeholder="اكتب استفسارك هنا..."></textarea>
+                                </div>
+            
+                                <!-- Dynamic Product List with hidden fields for product_id and qty -->
+                                <div id="productList" style="display:none;"></div>
+            
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">حفظ</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
 
             <!-- Add cart items table and other logic as needed -->
 
@@ -291,6 +331,66 @@
             }
         });
     </script>
+<script>
+    $(document).ready(function() {
+        $('#openInquiryModal').on('click', function() {
+            // Get the authenticated user's ID from JavaScript
+            var userId = "{{ Auth::guard('local')->id() }}"; // Inject the user's ID via Blade
+
+            // Make AJAX call to get the cart data
+            $.ajax({
+                url: '{{ route("get.cart.data") }}',  // The route you created
+                method: 'GET',
+                data: { user_id: userId },  // Send user_id as part of the data
+                success: function(response) {
+                    if (response.length > 0) {
+                        var productListHtml = '';
+                        response.forEach(function(item) {
+                            // Generate HTML for each cart item
+                            productListHtml += `
+                                <div class="mb-3">
+                                    <label class="form-label">Product ID: ${item.product_id}</label>
+                                    <input type="hidden" name="product_id[]" value="${item.product_id}">
+                                    <input type="hidden" name="qty[]" value="${item.qty}">
+                                    <label class="form-label">Quantity: ${item.qty}</label>
+                                </div>
+                            `;
+                        });
+
+                        // Append the product data to the modal body
+                        $('#productList').html(productListHtml);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching cart data:', error);
+                }
+            });
+        });
+
+        // Handle form submission
+        $('#inquiryForm').on('submit', function(e) {
+            e.preventDefault();
+
+            // Make AJAX call to save the inquiry
+            $.ajax({
+                url: '{{ route("save.inquiry") }}',  // The route to save the inquiry
+                method: 'POST',
+                data: $(this).serialize(),  // Serialize the form data
+                success: function(response) {
+                    // Show success message and redirect
+                    // alert(response.success);
+                    window.location.href = response.redirect;  // Redirect to the desired page
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error saving inquiry:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        });
+    });
+</script>
+
+    
 @endpush
 
 @endsection

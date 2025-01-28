@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\ProductOrder;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Checkout;
 use App\Models\Customer;
 use App\Models\CustomerAddress;
 use App\Models\ProjectCustomer;
@@ -94,11 +95,11 @@ class OrderController extends Controller
 
     public function getData($search = null, $orderby = null, $order = null, $request = null)
     {
-        $q = Order::select('orders.*', DB::raw("CONCAT(customers.first_name, ' ', customers.last_name) as customer_name"), 'customers.phone as mobile_number', DB::raw("COUNT(product_orders.product_id) as product_count"))
-            ->leftJoin('customers', 'customers.id', '=', 'orders.customer_id')
-            ->leftjoin('product_orders', 'product_orders.order_id', '=', 'orders.id');
+        $q = Checkout::select('checkouts.*', DB::raw("CONCAT(customers.first_name, ' ', customers.last_name) as customer_name"), 'customers.phone as mobile_number', DB::raw("COUNT(product_orders.product_id) as product_count"))
+            ->leftJoin('customers', 'customers.id', '=', 'checkouts.user_id')
+            ->leftjoin('product_orders', 'product_orders.checkout_id', '=', 'checkouts.id');
 
-        $orderby = $orderby ? 'orders.' . $orderby : 'orders.id';
+        $orderby = $orderby ? 'checkouts.' . $orderby : 'checkouts.id';
         $order = $order ? $order : 'desc';
         if ($search && !empty($search)) {
             $q->where(function ($query) use ($search) {
@@ -107,16 +108,16 @@ class OrderController extends Controller
             });
         }
         if (isset($request['status']) && $request['status'] != '') {
-            $q->where('orders.order_status', $request['status']);
+            $q->where('checkouts.order_status', $request['status']);
         }
         if (isset($request['stock_status']) && $request['stock_status'] != '') {
-            $q->where('orders.order_status', $request['stock_status']);
+            $q->where('checkouts.order_status', $request['stock_status']);
         }
         if (isset($request['payment_type']) && $request['payment_type'] != '') {
-            $q->where('orders.payment_type', $request['payment_type']);
+            $q->where('checkouts.payment_type', $request['payment_type']);
         }
         if (isset($request['dealer']) && $request['dealer'] != '') {
-            $q->where('orders.dealer_id', $request['dealer']);
+            $q->where('checkouts.dealer_id', $request['dealer']);
         }
 
         if (isset($request['name']) && !empty($request['name'])) {
@@ -130,7 +131,7 @@ class OrderController extends Controller
         if (isset($request['id_search']) && !empty($request['id_search'])) {
             $id_search = $request['id_search'];
             $q->where(function ($query) use ($id_search) {
-                $query->where('orders.id', 'LIKE', '%' . $id_search . '%');
+                $query->where('checkouts.id', 'LIKE', '%' . $id_search . '%');
             });
         }
 
@@ -141,10 +142,10 @@ class OrderController extends Controller
             $end_range = $request['end_range'];
 
 
-            $q->whereBetween(DB::raw('DATE_FORMAT(orders.created_at, "%Y-%m-%d")'), [$start_range, $end_range]);
+            $q->whereBetween(DB::raw('DATE_FORMAT(checkouts.created_at, "%Y-%m-%d")'), [$start_range, $end_range]);
         }
 
-        $response = $q->groupBy('product_orders.order_id')
+        $response = $q->groupBy('product_orders.checkout_id')
             ->orderBy($orderby, $order);
         return $response;
     }
@@ -192,7 +193,7 @@ class OrderController extends Controller
             $response = $this->getData($search, $sortableColumns[$orderby], $order, $s_data);
             // $response->whereBetween('devlopments.created_at', [$start_date, $end_date]);
 
-            $response = $response->offset($start)->limit($limit)->orderBy('orders.id', 'desc')->get();
+            $response = $response->offset($start)->limit($limit)->orderBy('checkouts.id', 'desc')->get();
             if (!$response) {
                 $data = [];
                 $paging = [];
@@ -516,11 +517,11 @@ class OrderController extends Controller
         try {
             $id = base64_decode($id);
             $data = array();
-            $data['order'] = $order = Order::select('orders.*')->where('orders.id', $id)->first();
-            $data['customers_add'] = CustomerAddress::select('*')->where('customer_id', $order->customer_id)->get();
-            $data['orders'] = Order::select('orders.*', 'products.stock_quantity as stock_quantity', 'coupons.coupon_code as coupon_code', 'products.name as pname', 'products.id as pid', 'products.price as pprice', 'products.cgst as cgst', 'products.sgst as sgst', 'products.mrp as mrp', 'product_orders.total_price as pprice', 'product_orders.qty as pqty', 'product_orders.sub_total_price as ptotal_price')
-                ->where('orders.id', $id)
-                ->join('product_orders', 'orders.id', '=', 'product_orders.order_id')
+            $data['order'] = $order = Checkout::select('checkouts.*')->where('checkouts.id', $id)->first();
+            $data['customers_add'] = CustomerAddress::select('*')->where('customer_id', $order->user_id)->get();
+            $data['orders'] = Checkout::select('checkouts.*','products.name as pname', 'products.id as pid', 'products.price as pprice', 'products.cgst as cgst', 'products.sgst as sgst', 'products.mrp as mrp','product_orders.qty as pqty')
+                ->where('checkouts.id', $id)
+                ->join('product_orders', 'checkouts.id', '=', 'product_orders.checkout_id')
                 ->join('products', 'products.id', '=', 'product_orders.product_id')
                 ->leftjoin('coupons', 'coupons.id', '=', 'orders.coupon_id')
                 ->get();
@@ -555,14 +556,14 @@ class OrderController extends Controller
     {
         try {
             $id = base64_decode($id);
-            $Id = Order::select('customer_id')->findorfail($id);
+            $Id = Checkout::select('user_id')->findorfail($id);
             $customer_id = $Id->customer_id;
             $data = array();
-            $data['order'] = $orders =  Order::select('orders.*', 'customers.first_name', 'customers.last_name', 'customers.image as profileImage', 'customers.email', 'customers.phone', 'customers.user_type')->join('customers', 'customers.id', 'orders.customer_id')->findOrFail($id);
-            $data['product_order'] = $p_orders = ProductOrder::select('product_orders.*', 'products.*', 'category.name as category_name')->join('products', 'products.id', 'product_orders.product_id')->join('category', 'category.id', 'products.category_id')->where('order_id', $id)->get();
+            $data['order'] = $orders =  Checkout::select('checkouts.*', 'customers.first_name', 'customers.last_name', 'customers.image as profileImage', 'customers.email', 'customers.phone', 'customers.user_type')->join('customers', 'customers.id', 'checkouts.user_id')->findOrFail($id);
+            $data['product_order'] = $p_orders = ProductOrder::select('product_orders.*', 'products.*', 'category.name as category_name')->join('products', 'products.id', 'product_orders.product_id')->join('category', 'category.id', 'products.category_id')->where('checkout_id', $id)->get();
             $data['shipping_address'] = CustomerAddress::select('*')->where('id', $orders->customer_address_id)->first();
             $data['billing_address'] = CustomerAddress::select('*')->where('id', $orders->customer_billingaddress_id)->first();
-            $data['total_order'] = Order::where('customer_id', $customer_id)->count();
+            $data['total_order'] = Checkout::where('user_id', $customer_id)->count();
 
 
             //    return print_r($data['total_order']);die;
