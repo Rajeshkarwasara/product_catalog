@@ -62,10 +62,14 @@
                             <!-- <div class="form-group mobile_code">
         <input type="number" id="mobile_code" class="form-control" name="phone" placeholder="رقم الهاتف">
     </div> -->
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <textarea id="message" class="form-control" rows="3" name="message" placeholder="رسالة"
                                     required></textarea>
-                            </div>
+                            </div> -->
+                            <div class="form-group">
+    <textarea id="message" class="form-control" rows="3" name="message" placeholder="رسالة" required maxlength="500"></textarea>
+    <small id="charCount" class="form-text text-muted">0 / 500 characters</small>
+</div>
                             <button type="submit" class="btn btn-contact">
                             تسجيل الدخول
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
@@ -208,7 +212,22 @@
 @push('script')
 
 <script>
+   // Get the textarea element and the character count element
+   const messageTextarea = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
 
+    // Update character count on input
+    messageTextarea.addEventListener('input', function() {
+        const currentLength = messageTextarea.value.length;
+        charCount.textContent = `${currentLength} / 500 characters`;
+
+        // Optionally change color when limit is exceeded
+        if (currentLength > 500) {
+            charCount.style.color = 'red';
+        } else {
+            charCount.style.color = '#6c757d'; // default color
+        }
+    });
             // -----Country Code Selection
 $("#mobile_code").intlTelInput({
     initialCountry: "in",

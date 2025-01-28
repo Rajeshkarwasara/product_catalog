@@ -61,6 +61,7 @@ Route::get('/phpinfo', function () {
     return phpinfo();
 });
 
+Route::post('/update-status', [InquiryController::class, 'updateStatus'])->name('update.status');
 
 // web.php
 Route::get('/getProductsByCategory', [ProductController::class, 'getProductsByCategory'])->name('getProductsByCategory');
