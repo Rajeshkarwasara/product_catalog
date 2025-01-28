@@ -110,9 +110,9 @@ class InquiryController extends Controller
         // if (isset($request['status']) && $request['status'] != '') {
         //     $q->where('orders.order_status', $request['status']);
         // }
-        // if (isset($request['stock_status']) && $request['stock_status'] != '') {
-        //     $q->where('orders.order_status', $request['stock_status']);
-        // }
+        if (isset($request['stock_status']) && $request['stock_status'] != '') {
+            $q->where('contact.status', $request['stock_status']);
+        }
         // if (isset($request['payment_type']) && $request['payment_type'] != '') {
         //     $q->where('orders.payment_type', $request['payment_type']);
         // }
@@ -120,13 +120,12 @@ class InquiryController extends Controller
         //     $q->where('orders.dealer_id', $request['dealer']);
         // }
 
-        // if (isset($request['name']) && !empty($request['name'])) {
-        //     $search_all = $request['name'];
-        //     $q->where(function ($query) use ($search_all) {
-        //         $query->where(DB::raw("CONCAT(customers.first_name, ' ', customers.last_name)"), 'LIKE', '%' . $search_all . '%')
-        //             ->orWhere('customers.phone', 'LIKE', '%' . $search_all . '%');
-        //     });
-        // }
+        if (isset($request['name']) && !empty($request['name'])) {
+            $search_all = $request['name'];
+            $q->where(function ($query) use ($search_all) {
+                $query->Where('contact.name', 'LIKE', '%' . $search_all . '%');
+            });
+        }
 
         // if (isset($request['id_search']) && !empty($request['id_search'])) {
         //     $id_search = $request['id_search'];
@@ -281,6 +280,7 @@ class InquiryController extends Controller
                         <option value="">Select Status</option>
                         <option value="1" ' . ($value->status == 1 ? 'selected' : '') . '>Pending</option>
                         <option value="2" ' . ($value->status == 2 ? 'selected' : '') . '>Complete</option>
+                        <option value="3" ' . ($value->status == 3 ? 'selected' : '') . '>Cancelled</option>
                     </select>
                 </div>';
            
@@ -323,11 +323,11 @@ class InquiryController extends Controller
         }
         // condition changed to listed only approved dealer and orderBY name ----- sarwan ---->
         $order_data = Order::select('*')->get();
-        $total_order = Order::count();
-        $completed_order  = Order::where('order_status', '4')->count();
-        $pending_order  = Order::where("order_status", '0')->count();
+        $total_order = Contact::count();
+        $completed_order  = Contact::where('status', '2')->count();
+        $pending_order  = Contact::where("status", '1')->count();
 
-        $cancel_order  = Order::where('order_status', '5')->count();
+        $cancel_order  = Contact::where('status', '3')->count();
 
 
         $data = ['title' => ucfirst($this->title), 'label' => $this->routeLable, 'order' => $order_data, 'total_order' => $total_order, 'completed_order' => $completed_order, 'pending_order' => $pending_order, 'cancel_order' => $cancel_order];
