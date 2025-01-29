@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use PDF;
 use Mail;
+use Carbon\Carbon;
 use App\Models\Brand;
 use App\Models\Order;
 use App\Models\Staff;
@@ -283,6 +284,11 @@ class InquiryController extends Controller
                         <option value="3" ' . ($value->status == 3 ? 'selected' : '') . '>Cancelled</option>
                     </select>
                 </div>';
+                
+
+$row['created_at'] = Carbon::parse($value->created_at)->format('Y-m-d'); // Format to only date (e.g., 2025-01-28)
+// Format to only date
+
            
                 // $edit = '';
                 // // $edit = '<div class="table-actions"><a href="javascript:void(0)" onclick="addEditForm(' . $value->id . ')" data-toggle="tooltip" title="Edit"><i class="ik ik-edit-2 f-16 mr-1 text-green"></i></a> ';

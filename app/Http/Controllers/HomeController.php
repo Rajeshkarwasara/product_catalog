@@ -51,7 +51,8 @@ class HomeController extends Controller
         $products = Product::where('products.status', '1') // Ensure status = 1 applies to all
             ->where(function ($query) {
                 $query->where('new_products', 'yes')
-                    ->orWhere('best_seller', 'yes'); // Group the 'new_products' and 'best_seller' conditions
+                    ->orWhere('best_seller', 'yes')
+                ; // Group the 'new_products' and 'best_seller' conditions
             })
             ->orderBy('created_at', 'desc')
             ->leftJoin('category', 'products.category_id', '=', 'category.id')
@@ -59,8 +60,18 @@ class HomeController extends Controller
             ->limit(4)
             ->get();
 
+        $mostproducts = Product::where('products.status', '1') // Ensure status = 1 applies to all
+            ->where(function ($query) {
+                $query->Where('most_populer', 'yes'); // Group the 'new_products' and 'best_seller' conditions
+            })
+            ->orderBy('created_at', 'desc')
+            ->leftJoin('category', 'products.category_id', '=', 'category.id')
+            ->select('products.*', 'category.name as category_name')
+            ->orderBy('products.created_at', 'desc')
+            ->limit(2)
+            ->get();
         $categorys = Category::all();
-        return view('stc_products.index', compact('sliders', 'brands', 'products', 'categorys'));
+        return view('stc_products.index', compact('sliders', 'brands', 'products', 'categorys', 'mostproducts'));
     }
 
     public function productdetails($id)

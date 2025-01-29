@@ -212,8 +212,9 @@ class ProductController extends Controller
 
                 $view = '';
                 
-                    $view = '<a href="javascript::void(0)" title="View" ><i class="bx bxs-show f-16 text-green mr-1"></i></a>';
-               
+                    // $view = '<a href="javascript::void(0)" title="View" ><i class="bx bxs-show f-16 text-green mr-1"></i></a>';
+                    $view = '<a href="' . url('product/view/' . base64_encode($value->id))  . '" title="View" data-toggle="tooltip" data-bs-target="#viewModal   " title="View"><i class="bx bxs-show f-16 text-green mr-1"></i></a> ';
+
 
                 // }
                 $delete = '';
@@ -781,6 +782,29 @@ public function getProductsByCategory(Request $request)
     {
         $subcategories = SubCategory::where('category_id', $id)->get();
         return response()->json(['subcategories' => $subcategories]);
+    }
+    public function view($id, Request $request)
+    {
+        try {
+            $id = base64_decode($id);
+            $data = Product::find($id);
+            // dd($data);
+            // $customer_id = $Id->customer_id;
+            // $data = array();
+            // $data['order'] = $orders =  Order::select('orders.*', 'customers.first_name', 'customers.last_name', 'customers.image as profileImage', 'customers.email', 'customers.phone', 'customers.user_type')->join('customers', 'customers.id', 'orders.customer_id')->findOrFail($id);
+            // $data['product_order'] = $p_orders = ProductOrder::select('product_orders.*', 'products.*', 'category.name as category_name')->join('products', 'products.id', 'product_orders.product_id')->join('category', 'category.id', 'products.category_id')->where('order_id', $id)->get();
+            // $data['shipping_address'] = CustomerAddress::select('*')->where('id', $orders->customer_address_id)->first();
+            // $data['billing_address'] = CustomerAddress::select('*')->where('id', $orders->customer_billingaddress_id)->first();
+            // $data['total_order'] = Order::where('customer_id', $customer_id)->count();
+
+
+            //    return print_r($data['total_order']);die;
+            return view('content/product/product_view_new', compact('data'));
+
+        } catch (\Exception $e) {
+            $res = array('code' => 201, 'msg' => 'Something went wrong! Try again' . $e);
+        }
+        return json_encode($res);
     }
 
 }
