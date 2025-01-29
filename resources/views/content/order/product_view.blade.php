@@ -1020,6 +1020,9 @@
                                         type: "POST",
                                         enctype: 'multipart/form-data',
                                         url: urlp,
+                                        headers: {
+                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                        },
                                         data: formData,
                                         mimeType: "multipart/form-data",
                                         contentType: false,
