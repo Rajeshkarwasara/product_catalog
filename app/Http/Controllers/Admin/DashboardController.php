@@ -62,7 +62,7 @@ class DashboardController extends Controller
             'category.name as category_name',
             DB::raw('COUNT(DISTINCT products.category_id) as NumberOfOrders'),
         )
-            ->leftJoin('product_orders', 'orders.id', '=', 'product_orders.order_id')
+            ->leftJoin('product_orders', 'orders.id', '=', 'product_orders.checkout_id')
             ->leftjoin('products', 'product_orders.product_id', '=', 'products.id')
             ->leftJoin('category', 'products.category_id', '=', 'category.id')
 
@@ -120,7 +120,7 @@ class DashboardController extends Controller
             'category.name as category_name',
             DB::raw('COUNT(DISTINCT products.category_id) as NumberOfOrders'),
         )
-            ->leftJoin('product_orders', 'orders.id', '=', 'product_orders.order_id')
+            ->leftJoin('product_orders', 'orders.id', '=', 'product_orders.checkout_id')
             ->leftjoin('products', 'product_orders.product_id', '=', 'products.id')
             ->leftJoin('category', 'products.category_id', '=', 'category.id')
 
@@ -294,7 +294,7 @@ class DashboardController extends Controller
                     DB::raw('COUNT(product_orders.id) as NumberOfProductOrders'),
                     'product_orders.created_at as create_date',
                 )
-                ->leftJoin('product_orders', 'orders.id', '=', 'product_orders.order_id')
+                ->leftJoin('product_orders', 'orders.id', '=', 'product_orders.checkout_id')
                 ->groupBy(DB::raw('DATE_FORMAT(orders.created_at, "%Y-%m")'))
                 ->get();
         } else {
