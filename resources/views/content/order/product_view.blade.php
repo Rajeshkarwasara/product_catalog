@@ -1012,9 +1012,7 @@
                                     //form.submit();
                                     var formData = new FormData($("#addEditForm1")[0]);
                                     // alert(formData);
-                                    headers: {
-                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                    },
+                                   
                                     formData.append('id', o_id);
                                     formData.append('status', o_value);
                                     var urlp = "{{ route('order.order_status') }}";
@@ -1023,6 +1021,9 @@
                                         type: "POST",
                                         enctype: 'multipart/form-data',
                                         url: urlp,
+                                         headers: {
+                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                        },
                                         data: formData,
                                         mimeType: "multipart/form-data",
                                         contentType: false,
