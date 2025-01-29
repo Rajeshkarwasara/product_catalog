@@ -682,7 +682,7 @@ class OrderController extends Controller
         //if id found then update else insert
         if (isset($request->id) && $request->id > 0) {
             //update
-            $item = Order::find($request->id);
+            $item = Checkout::find($request->id);
             //update active/inactive status
             $item->order_status = $request->status;
             $item->dispatched_date = $request->dispatchDate;
