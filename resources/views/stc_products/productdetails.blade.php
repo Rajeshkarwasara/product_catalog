@@ -21,6 +21,11 @@
         font-size: 35px;
         color: #009ed2;
     }
+
+    video {
+        width: 100%;
+        height: 60vh;
+    }
 </style>
 <div class="breadcrumb_card">
     <div class="container">
@@ -60,13 +65,24 @@
 
                             </li>
 
-                            @foreach($productImages as $image)
-                                <li data-thumb="{{ asset('uploads/product/listing_images/' . $image->list_image) }}">
-                                    <img src="{{ asset('uploads/product/listing_images/' . $image->list_image) }}"
-                                        alt="Product Image" />
+                            @foreach ($productImages as $video)
+                                <li data-thumb="{{ asset('uploads/product/listing_images/' . $video->list_image) }}">
+                                    @if(strpos($video->list_image, '.mp4') !== false)
+                                        <!-- If the file is a video (based on the file extension) -->
+                                        <video width="640" height="360" controls>
+                                            <source src="{{ asset('uploads/product/listing_images/' . $video->list_image) }}"
+                                                type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    @else
+                                        <!-- If the file is an image -->
+                                        <img src="{{ asset('uploads/product/listing_images/' . $video->list_image) }}"
+                                            alt="Product Image" />
+                                    @endif
                                 </li>
-                            @endforeach
 
+
+                            @endforeach
                         </ul>
                     </div>
                 </div>
