@@ -1,28 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Enquiry;
-use App\Mail\EnquiryMail;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use App\Models\Slider;
-use App\Models\Brands;
-use App\Models\Product;
-use App\Models\MasterPage;
-use App\Models\ListingImages;
-use App\Models\SubCategory;
-use App\Models\Category;
 use App\Models\Cart;
+use App\Models\Brands;
+use App\Models\Slider;
+use App\Models\Enquiry;
+use App\Models\Product;
+use App\Models\Category;
+use App\Mail\EnquiryMail;
+use App\Models\MasterPage;
+use App\Models\SubCategory;
+use Illuminate\Http\Request;
+use App\Models\ListingImages;
+use Illuminate\Support\Facades\DB;
 
 
 
 // use App\Models\Enquiry;
-use App\Http\Controllers\EnquiryController;
+use App\Models\ProductOverviewImage;
 
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\EnquiryController;
 
 class HomeController extends Controller
 {
@@ -78,9 +79,9 @@ class HomeController extends Controller
     {
         $productdetails = DB::table('products') // Use query builder
             ->leftJoin('category', 'products.category_id', '=', 'category.id') // Join with category table
-            ->select('products.*', 'category.name as category_name') // Select product fields and category name
+            // ->select('products.*') // Select product fields and category name
             ->leftJoin('brands', 'products.brands', '=', 'brands.id')
-            ->select('products.*', 'brands.name as brands_name')
+            ->select('products.*', 'brands.name as brands_name', 'category.name as category_name')
             ->where('products.id', $id) // Filter by product ID
             ->first(); // Get the first matching record
 
@@ -92,6 +93,12 @@ class HomeController extends Controller
             ->get(); // Get all images related to the product
 
         $categorys = Category::all();
+        // $productvideo= DB::table('product_listing_images')
+        // ->where('product_id', $id)
+        // ->get(); 
+        // $slidertvideo= DB::table('product_slider_images')
+        // ->where('product_id', $id)
+        // ->get(); 
         // $productss = Product::limit(4)->get();
         $productss = Product::orderBy('created_at', 'desc')->limit(4)->get();
 
