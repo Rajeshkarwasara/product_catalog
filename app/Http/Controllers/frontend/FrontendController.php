@@ -91,6 +91,7 @@ class FrontendController extends Controller
 
     public function add_tocart(Request $request, $productId)
 {
+    // dd($request->all());
     // Get the current cart from the cookie
     $cart = json_decode(Cookie::get('cart', '[]'), true);
 

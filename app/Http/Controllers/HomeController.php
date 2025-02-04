@@ -84,7 +84,11 @@ class HomeController extends Controller
             ->select('products.*', 'brands.name as brands_name', 'category.name as category_name')
             ->where('products.id', $id) // Filter by product ID
             ->first(); // Get the first matching record
-
+            // dd($productdetails);
+            $productColors = DB::table('colors')
+            ->whereRaw("FIND_IN_SET(colors.id, ?)", [$productdetails->color])
+            ->get(); 
+            // dd($productColors);
         if (!$productdetails) {
             abort(404); // Return a 404 error if the product is not found
         }
@@ -103,7 +107,7 @@ class HomeController extends Controller
         $productss = Product::orderBy('created_at', 'desc')->limit(4)->get();
 
 
-        return view('stc_products.productdetails', compact('productdetails', 'productImages', 'categorys', 'productss')); // Pass product details and images to the view
+        return view('stc_products.productdetails', compact('productdetails', 'productImages', 'categorys', 'productss','productColors')); // Pass product details and images to the view
     }
 
 

@@ -171,6 +171,28 @@
                                     </div>
                                 @endif
                             @endif
+                            <div class="col-sm-6 mt-2">
+                                <label for="colors">Select Colors</label>
+                                <div class="form-check">
+                                    @php
+                                        $selectedColors = explode(',', $product_detail->color ?? ''); // Convert string to array
+                                    @endphp
+                                    @foreach($colors as $color)
+                                        <div class="form-check">
+                                            <input 
+                                                type="checkbox" 
+                                                name="colors[]" 
+                                                value="{{ $color->id }}" 
+                                                id="color_{{ $color->id }}" 
+                                                class="form-check-input"
+                                                {{ in_array($color->id, $selectedColors) ? 'checked' : '' }}> 
+                                            <label class="form-check-label" for="color_{{ $color->id }}">
+                                                {{ $color->name }}
+                                            </label>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>                                                                                                               
                             <div class="col-sm-12 mt-2">
                                 <label class="form-label" for="summary">Summary<span
                                         class="text-danger">*</span></label>
@@ -551,6 +573,9 @@
 
 @endsection
 @push('scripts')
+    {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 
     <script>
@@ -1826,6 +1851,9 @@
                 warranty: {
                     required: true,
                 },
+                // color:{
+                //     required: true,
+                // }
                 summary: {
                     required: true,
                 },
