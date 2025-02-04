@@ -130,7 +130,7 @@ $urlComponents = explode('/', $currentURL);
                                 <th>{{ __('Name')}}</th>
                                 <th>{{ __('Mobile Number')}}</th>
                                 <th>{{ __('Product Count')}}</th>
-                                <th>{{ __('Status')}}</th>
+                                {{-- <th>{{ __('Status')}}</th> --}}
                                 <th>{{ __('Message')}}</th>
 
                                 <th style="min-width:110px;">{{ __('Orders Date')}}</th>
@@ -266,9 +266,9 @@ if (in_array("offline_orders", $urlComponents)) {
                 {
                     mData: 'count'
                 },
-                {
-                    mData: 'order_status'
-                },
+                // {
+                //     mData: 'order_status'
+                // },
                 {
                     mData: 'message',
                     render: function(data, type, row) {

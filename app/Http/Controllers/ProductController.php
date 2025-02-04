@@ -21,6 +21,7 @@ use App\Models\ProductOverviewImage;
 use App\Models\ListingImages;
 use Illuminate\Support\Str;
 use App\Models\Staff;
+use App\Models\Color;
 use App\Models\MasterEmailTemplate;
 use App\Models\MasterCompanySetting;
 use Maatwebsite\Excel\Facades\Excel;
@@ -249,6 +250,7 @@ class ProductController extends Controller
         $subcategory  = SubCategory::orderBy('name', 'asc')->get();
         $lifestyle_gear  = Lifestyle::where('status', '1')->orderBy('name', 'asc')->get();
         $Feature_Products  = Feature_Products::where('status', '1')->orderBy('name', 'asc')->get();
+        $colors = Color::all();
 
         $data = array();
         $data['brands'] = $brands;
@@ -256,6 +258,7 @@ class ProductController extends Controller
         $data['subcategory'] = $subcategory;
         $data['lifestyle_gear'] = $lifestyle_gear;
         $data['Feature_Products'] = $Feature_Products;
+        $data['colors'] = $colors;
         // return $Feature_Products;die;
         return view('content/product/add_product', $data);
     }
@@ -263,7 +266,7 @@ class ProductController extends Controller
     //store data
    public function store(Request $request)
     {
-    
+        // dd($request->all());
         $rules = [
             'name' => 'required | string ',
             'code' => 'required ',
@@ -338,6 +341,7 @@ class ProductController extends Controller
             $item->brands = $request->brands;
             $item->category_id = $request->category;
             $item->origin = $request->origin;
+            $item->color = implode(',', $request->colors);
             $item->normal_price = $request->normal_price;
             $item->subcategory_id = $request->subcategory;
             $item->wholesaler_price = $request->wolesales_price;
@@ -473,6 +477,7 @@ class ProductController extends Controller
             $item->meta_description = $request->meta_description;
             $item->warranty = $request->warranty;
             $item->full_description = $request->description;
+            $item->color = implode(',', $request->colors);
             $item->summary = $request->summary;
             $item->best_seller = $request->best_seller ?? 0;
         $item->new_products = $request->new_products ?? 0;
@@ -574,6 +579,7 @@ class ProductController extends Controller
         try {
             $data = array();
             $data['product_detail'] = $product_detail = Product::select('products.*')->findOrFail($id);
+            $selectedColors = explode(',', $product_detail->color); 
         
             
             $ProductSliderImages =  product_slider_image::select('*')->where('product_id', $id)->get();
@@ -582,9 +588,13 @@ class ProductController extends Controller
             $brands  = Brands::orderBy('name', 'asc')->get();
             $category  = Category::orderBy('name', 'asc')->get();
             $subcategory  = SubCategory::orderBy('name', 'asc')->get();
+            $colors = Color::all();
             $data['brands'] = $brands;
             $data['category'] = $category;
             $data['subcategory'] = $subcategory;
+            $data['colors'] = $colors;
+            $data['selectedColors'] = $selectedColors; // Pass the array of selected colors
+
 
             // Format static files data
         $data['product_listing_images'] = $ListingImages->map(function ($image) {

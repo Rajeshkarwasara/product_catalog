@@ -45,7 +45,7 @@
                             @endphp
 
                             <div class="dropdown">
-                                <select o_id="{{$order->id}}" class="all_order_satus" style=" border: 1px solid #D4DFEA;padding: 3px 2px 3px;
+                                {{-- <select o_id="{{$order->id}}" class="all_order_satus" style=" border: 1px solid #D4DFEA;padding: 3px 2px 3px;
                                     border-radius: 3px;  margin-top: 3px;  font-size: 14px;" id="all_order_satus" class="form-group">
                                     <option value="0" {{$status=='0' ? 'selected':''}}>Pending</option>
                                     <option value="1" {{$status=='1' ? 'selected':''}}>Confirmed</option>
@@ -53,7 +53,7 @@
                                     <option value="3" {{$status=='3' ? 'selected':''}}>Intransit</option>
                                     <option value="4" {{$status=='4' ? 'selected':''}}>Delivered</option>
                                     <option value="5" {{$status=='5' ? 'selected':''}}>Cancelled</option>
-                                </select>
+                                </select> --}}
                             </div>
 
                         </div>
@@ -68,8 +68,10 @@
                                 </div>
                                 @foreach ($product_order as $p_order)
                                 @php
+                                // echo "<pre>";
+                                // print_r($p_order);
                                 $product = $p_order->product;
-                                $product_image = $p_order->product_small_image;
+                                $product_image = $p_order->product_image;
 
                                 @endphp
                                 <tr>
@@ -77,21 +79,29 @@
                                         <div class="d-flex justify-content-right">
                                             <div class="prod-img">
 
-                                                <img src="{{ url('/uploads/product/product_small_image/' . $product_image) }}" alt="">
+                                                <img src="{{ url('/uploads/product/product_image/' . $product_image) }}" alt="">
 
                                             </div>
                                             <div class="prod-cont row justify-content">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <h6 class="mb-0"><span>Name: </span></h6>
                                                     <p class="mb-0">{{ $p_order->name }}</p>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
+                                                    <h6 class="mb-0"><span>Category Name: </span></h6>
+                                                    <p class="mb-0">{{ $p_order->category_name }}</p>
+                                                </div>
+                                                <div class="col-md-4">
                                                     <h6 class="mb-0"><span>SKU: </span></h6>
                                                     <p class="mb-0">{{ $p_order->sku }}</p>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <h6 class="mb-0"><span>Quntity: </span></h6>
                                                     <p class="mb-0">{{$p_order->qty}}</p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h6 class="mb-0"><span>Brand Name: </span></h6>
+                                                    <p class="mb-0">{{ $p_order->brand_name }}</p>
                                                 </div>
                                             </div>
                                         </div>

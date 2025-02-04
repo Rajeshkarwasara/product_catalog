@@ -22,6 +22,26 @@
         color: #009ed2;
     }
 </style>
+<!-- CSS for Selected Color -->
+<style>
+    .bg_color_p {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 5px;
+        border: 2px solid transparent;
+        cursor: pointer;
+    }
+
+    .bg_color_p.selected {
+        border: 2px solid black; /* Highlight selected color */
+    }
+
+    .color-label input {
+        display: none; /* Hide the checkbox */
+    }
+</style>
 <div class="breadcrumb_card">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&quot;);"
@@ -149,12 +169,21 @@
                     <div class="product_color">
                         <h3 style="font-weight:400 !important;">لون</h3>
                         <div class="por_color">
-                            <div class="bg_color_p gray active"></div>
-                            <div class="bg_color_p red"></div>
+                            @foreach($productColors as $color)
+                                <label class="color-label">
+                                    <input type="checkbox" class="color-checkbox" value="{{ $color->id }}">
+                                    <div class="bg_color_p" 
+                                         style="background-color: {{ $color->hex ?? '#ccc' }};" 
+                                         title="{{ $color->name }}">
+                                    </div>
+                                </label>
+                            @endforeach
                         </div>
                     </div>
+                    
+                    
                     <div class="select_p">
-                        <select class="form-select" aria-label="Default select example" style="    background-position: left .75rem center;
+                        {{-- <select class="form-select" aria-label="Default select example" style="    background-position: left .75rem center;
     padding: .375rem .75rem .375rem 2.25rem;background-color: #F0F2F3; color:#464748;border: none;">
                             <option selected="">
                                 <font style="vertical-align: inherit;">
@@ -181,7 +210,7 @@
                                     <font style="vertical-align: inherit;">حدد الحجم</font>
                                 </font>
                             </option>
-                        </select>
+                        </select> --}}
                     </div>
                     <form action="{{ route('add_tocart', $productdetails->id) }}" method="POST">
                         <div class="pr_btn">
@@ -198,7 +227,8 @@
                             @csrf
                             <input type="hidden" name="price" value="{{ $productdetails->normal_price }}">
                             <input type="hidden" name="name" value="{{ $productdetails->name}}">
-
+                            <!-- Hidden Field for Colors -->
+                            <input type="hidden" name="selected_colors" id="selectedColorsInput">
 
                             <div class="input-add d-flex">
                                 <span class="input-group-btn">
@@ -520,8 +550,35 @@
 
 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @push('script')
+<script>
+    $(document).ready(function() {
+    $(".bg_color_p").click(function() {
+        var checkbox = $(this).prev("input[type='checkbox']");
+        checkbox.prop("checked", !checkbox.prop("checked")); // Toggle checkbox state
+        $(this).toggleClass("selected"); // Toggle selected class
+        updateSelectedColors(); // Update hidden input
+    });
 
+    function updateSelectedColors() {
+        var selectedColors = [];
+        $(".color-checkbox:checked").each(function() {
+            selectedColors.push($(this).val());
+        });
+
+        $("#selectedColorsInput").val(selectedColors.join(',')); // Store selected colors in hidden input
+        console.log("Selected Colors:", selectedColors.join(',')); // 🐞 Debugging - Check values in console
+    }
+
+    // 🎯 Ensure colors are saved before form submission
+    $("#addToCartForm").submit(function() {
+        updateSelectedColors(); // Update before form submission
+        console.log("Submitting Colors:", $("#selectedColorsInput").val()); // 🐞 Debugging
+    });
+});
+
+</script>
     <script>
         $(document).ready(function () {
             const sliderOptions = {
