@@ -171,7 +171,7 @@
                                     </div>
                                 @endif
                             @endif
-                            <div class="col-sm-6 mt-2">
+                            {{--<div class="col-sm-6 mt-2">
                                 <label for="colors">Select Colors</label>
                                 <div class="form-check">
                                     @php
@@ -192,7 +192,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                            </div>                                                                                                               
+                            </div>     --}}                                                                                                          
                             <div class="col-sm-12 mt-2">
                                 <label class="form-label" for="summary">Summary<span
                                         class="text-danger">*</span></label>
@@ -1851,9 +1851,7 @@
                 warranty: {
                     required: true,
                 },
-                // color:{
-                //     required: true,
-                // }
+             
                 summary: {
                     required: true,
                 },

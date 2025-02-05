@@ -69,7 +69,7 @@
                                                                                                 Auth::guard('local')->user()->user_type == "loyal" ||
                                                                                                 Auth::guard('local')->user()->user_type == "wholesaler"
                                                                                             )
-                                                                                                                <td>₪ {{ number_format($item['price'], 2) }}</td>
+                                                                                            <td>₪ {{ number_format($item['price'], 2) }}</td>
                                                                                         @endif
                                                                 @else
                                                                     <td>N/A</td>

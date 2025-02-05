@@ -127,6 +127,10 @@
                 <td>{{ $data->loyal_price ?? 'Product loyal_price Not Available' }}</td>
             </tr>
             <tr>
+                <th>measurements</th>
+                <td>{{ $data->measurements ?? 'Product measurements Not Available' }}</td>
+            </tr>
+            <tr>
                 <th>status</th>
                 <td>{{ $data->status ?? 'Product status Not Available' }}</td>
             </tr>
@@ -142,6 +146,7 @@
                 <th>most_populer</th>
                 <td>{{ $data->most_populer ?? 'Product most_populer Not Available' }}</td>
             </tr>
+           
         </table>
     </div>
 </section>
