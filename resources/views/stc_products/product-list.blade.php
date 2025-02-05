@@ -57,7 +57,7 @@
                     </div>
                 </form>
             </div>
-
+            
             <div class="col-md-8 col-lg-9">
                 <div class="product_inner">
                     <div class="Short_by">

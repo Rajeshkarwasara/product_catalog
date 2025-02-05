@@ -106,7 +106,7 @@ class HomeController extends Controller
         // $productss = Product::limit(4)->get();
         $productss = Product::orderBy('created_at', 'desc')->limit(4)->get();
 
-
+        // dd($productdetails);
         return view('stc_products.productdetails', compact('productdetails', 'productImages', 'categorys', 'productss')); // Pass product details and images to the view
     }
 

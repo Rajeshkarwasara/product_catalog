@@ -283,7 +283,7 @@ class ProductController extends Controller
             // 'sku' => 'required',
             'stock_quantity' => 'required|numeric',
              'best_seller' => 'nullable',
-        'new_products' => 'nullable',
+             'new_products' => 'nullable',
              'most_populer' => 'nullable',
 
             // 'price' => 'required',
@@ -482,6 +482,8 @@ class ProductController extends Controller
         $item->new_products = $request->new_products ?? 0;
                 $item->most_populer = $request->most_populer ?? 0;
 
+                $item->titles = implode(',', $request->titles);
+                $item->descriptions = implode(',', $request->descriptions);
 
             //if Product Introduction  image set then upload
             if ($image = $request->file('attachments')) {

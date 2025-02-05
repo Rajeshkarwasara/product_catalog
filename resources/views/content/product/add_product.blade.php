@@ -192,7 +192,21 @@
                                         </div>
                                     @endforeach
                                 </div>
-                            </div>     --}}                                                                                                          
+                            </div>     --}} 
+                            <div class="col-sm-12 mt-2">
+                                <div id="dynamic-fields">
+                                    <!-- Default Title and Description -->
+                                    <div class="field-group mb-2 p-2 border rounded">
+                                        <label>Title & Description</label>
+                                        <input type="text" class="form-control mb-2" name="titles[]" placeholder="Enter Title" required>
+                                        <textarea class="form-control mb-2" name="descriptions[]" placeholder="Enter Description" required></textarea>
+                                        <button type="button" class="btn btn-danger btn-sm remove-btn" style="display: none;">Remove</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Button to Add New Fields -->
+                                <button class="btn btn-info mt-2" type="button" id="add-field">Add New Title & Description</button>
+                            </div>                            
                             <div class="col-sm-12 mt-2">
                                 <label class="form-label" for="summary">Summary<span
                                         class="text-danger">*</span></label>
@@ -577,6 +591,25 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Add new fields
+            $("#add-field").click(function () {
+                let newField = `
+                    <div class="field-group mb-2 p-2 border rounded">
+                        <input type="text" class="form-control mb-2" name="titles[]" placeholder="Enter Title" required>
+                        <textarea class="form-control mb-2" name="descriptions[]" placeholder="Enter Description" required></textarea>
+                        <button type="button" class="btn btn-danger btn-sm remove-btn">Remove</button>
+                    </div>`;
+                $("#dynamic-fields").append(newField);
+            });
+    
+            // Remove a field
+            $(document).on("click", ".remove-btn", function () {
+                $(this).closest(".field-group").remove();
+            });
+        });
+    </script>
 
     <script>
         Dropzone.autoDiscover = false; // Prevent Dropzone from auto-initializing

@@ -358,6 +358,21 @@
                                     <td>سوق المبيعات</td>
                                     <td>--</td>
                                 </tr>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                </tr>
+                                @php
+                                    $titles = explode(',', $productdetails->titles);
+                                    $descriptions = explode(',', $productdetails->descriptions);
+                                @endphp
+                                
+                                @foreach($titles as $key => $title)
+                                    <tr>
+                                        <td>{{ $title }}</td>
+                                        <td>{{ $descriptions[$key] ?? '' }}</td>
+                                    </tr>
+                                @endforeach                                
                             </tbody>
 
                         </table>
