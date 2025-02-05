@@ -182,20 +182,6 @@
 
 
 
-                    <div class="product_color">
-                        <h3 style="font-weight:400 !important;">لون</h3>
-                        <div class="por_color">
-                            @foreach($productColors as $color)
-                                <label class="color-label">
-                                    <input type="checkbox" class="color-checkbox" value="{{ $color->id }}">
-                                    <div class="bg_color_p" 
-                                         style="background-color: {{ $color->hex ?? '#ccc' }};" 
-                                         title="{{ $color->name }}">
-                                    </div>
-                                </label>
-                            @endforeach
-                        </div>
-                    </div>
                     
                     
                     <div class="select_p">

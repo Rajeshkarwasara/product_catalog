@@ -585,18 +585,18 @@
                         required: true,
                     },
 
-                    password: {
-                        required: true,
-                        customPassword: true,
-                        minlength: 8,
-                        maxlength: 15
-                    },
-                    confirm_password: {
-                        required: true,
-                        minlength: 8,
-                        maxlength: 15,
-                        equalTo: "#password"
-                    }
+                    // password: {
+                    //     required: true,
+                    //     customPassword: false,
+                    //     minlength: 8,
+                    //     maxlength: 15
+                    // },
+                    // confirm_password: {
+                    //     required: true,
+                    //     minlength: 8,
+                    //     maxlength: 15,
+                    //     equalTo: "#password"
+                    // }
                 },
                 messages: {
                     phone: {
@@ -730,6 +730,7 @@
                     if (response.code == 200) {
                         var item = response.data.customer_detail;
                         var variables = response.config_val;
+                        $("#addEditForm").find("input[name='password']").removeAttr("required");
                         //put  item details in all input fields
                         $("#addEditForm").find(".modal-title").text('Update');
                         $("#addEditForm").find("input[name='id']").val(item.id);

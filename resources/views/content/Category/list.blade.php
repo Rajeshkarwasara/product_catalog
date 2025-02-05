@@ -317,7 +317,7 @@
 
                 name: {
                     required: true,
-                    alphabatesOnly: true,
+                   
                 },
             },
             messages: {},
