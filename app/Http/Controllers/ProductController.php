@@ -370,6 +370,9 @@ class ProductController extends Controller
         $item->new_products = $request->new_products ?? 0;
         $item->most_populer = $request->most_populer ?? 0;
 
+                $item->titles = implode(',', $request->titles);
+                $item->descriptions = implode(',', $request->descriptions);
+
             //if Product Introduction  image set then upload
             if ($image = $request->file('attachments')) {
                 $destination_path = 'uploads/product/attachments';

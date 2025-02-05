@@ -18,7 +18,10 @@
         </nav>
     </div>
 </div>
-
+<!-- Search Box (Works After Brand & Category Filters) -->
+<div class="search-container">
+    <input type="text" id="searchBox" placeholder="Search Products..." autocomplete="off">
+</div>
 
 <div class="product_list_p">
     <div class="container">
@@ -57,6 +60,38 @@
                     </div>
                 </form>
             </div>
+
+            {{-- <div class="col-md-4 col-lg-3">
+                <form method="GET" action="{{ route('products') }}" id="filter-form">
+                    <div class="filter_card">
+                        <h3>Filters</h3>
+            
+                        <!-- Brand Filters -->
+                        <div class="select_filter">
+                            <h4>Brands</h4>
+                            @foreach ($brands as $brand)
+                                <div class="form-check-f">
+                                    <input class="form-check-input filter-checkbox" type="checkbox" name="brands[]" value="{{ $brand->id }}"
+                                        id="brand-{{ $brand->id }}">
+                                    <label class="form-check-label" for="brand-{{ $brand->id }}">{{ $brand->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+            
+                        <!-- Category Filters -->
+                        <div class="select_filter">
+                            <h4>Categories</h4>
+                            @foreach ($categorys as $category)
+                                <div class="form-check-f">
+                                    <input class="form-check-input filter-checkbox" type="checkbox" name="categories[]" value="{{ $category->id }}"
+                                        id="category-{{ $category->id }}">
+                                    <label class="form-check-label" for="category-{{ $category->id }}">{{ $category->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </form>
+            </div> --}}
             
             <div class="col-md-8 col-lg-9">
                 <div class="product_inner">
@@ -284,5 +319,35 @@
                 });
             });
         </script>
+
+        {{-- <script>
+            // Fetch Products on Keyup Event (New Search Box)
+            document.getElementById('searchBox').addEventListener('keyup', function () {
+                fetchProducts();
+            });
+        
+            // Fetch Products on Filter Change (Brands & Categories)
+            document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    fetchProducts();
+                });
+            });
+        
+            function fetchProducts() {
+                let query = document.getElementById('searchBox').value;
+                let selectedBrands = [];
+                let selectedCategories = [];
+        
+                document.querySelectorAll('input[name="brands[]"]:checked').forEach((el) => selectedBrands.push(el.value));
+                document.querySelectorAll('input[name="categories[]"]:checked').forEach((el) => selectedCategories.push(el.value));
+        
+                // Send AJAX request
+                fetch("{{ route('products') }}?query=" + query + "&brands=" + selectedBrands.join(',') + "&categories=" + selectedCategories.join(','))
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('productList').innerHTML = data;
+                    });
+            }
+        </script> --}}
     @endpush
     @endsection

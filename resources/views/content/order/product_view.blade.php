@@ -45,7 +45,7 @@
                             @endphp
 
                             <div class="dropdown">
-                                {{-- <select o_id="{{$order->id}}" class="all_order_satus" style=" border: 1px solid #D4DFEA;padding: 3px 2px 3px;
+                                <select o_id="{{$order->id}}" class="all_order_satus" style=" border: 1px solid #D4DFEA;padding: 3px 2px 3px;
                                     border-radius: 3px;  margin-top: 3px;  font-size: 14px;" id="all_order_satus" class="form-group">
                                     <option value="0" {{$status=='0' ? 'selected':''}}>Pending</option>
                                     <option value="1" {{$status=='1' ? 'selected':''}}>Confirmed</option>
@@ -53,7 +53,7 @@
                                     <option value="3" {{$status=='3' ? 'selected':''}}>Intransit</option>
                                     <option value="4" {{$status=='4' ? 'selected':''}}>Delivered</option>
                                     <option value="5" {{$status=='5' ? 'selected':''}}>Cancelled</option>
-                                </select> --}}
+                                </select>
                             </div>
 
                         </div>
@@ -96,12 +96,24 @@
                                                     <p class="mb-0">{{ $p_order->sku }}</p>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <h6 class="mb-0"><span>Quntity: </span></h6>
+                                                    <h6 class="mb-0"><span>Quantity: </span></h6>
                                                     <p class="mb-0">{{$p_order->qty}}</p>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <h6 class="mb-0"><span>Brand Name: </span></h6>
                                                     <p class="mb-0">{{ $p_order->brand_name }}</p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h6 class="mb-0"><span>Origin: </span></h6>
+                                                    <p class="mb-0">{{ $p_order->origin }}</p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h6 class="mb-0"><span>Product Code: </span></h6>
+                                                    <p class="mb-0">{{ $p_order->code }}</p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h6 class="mb-0"><span>Measurements: </span></h6>
+                                                    <p class="mb-0">{{ $p_order->measurements }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -286,7 +298,7 @@
                                 <a href="{{ url('customer/view/' . ($order->customer_id)) }}" class="text-body text-nowrap">
                                     <h6 class="mb-0">{{ $order->name }}</h6>
                                 </a>
-                                <small class="text-muted">Customer ID: {{'#'. $order->customer_id }}</small><br>
+                                <small class="text-muted">Customer ID: {{$order->user_id }}</small><br>
                                 <small class="text-muted">Customer Name: {{ucfirst($order->first_name) }} {{ ucfirst($order->last_name) }}</small><br>
                                 <small class="text-muted">Customer Type: {{ucfirst($order->user_type) }}</small>
                             </div>
@@ -972,7 +984,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     if (o_value == 1) {
-                        $('#myModal').modal('show');
+                        $('#myModal').modal('hiden');
                         $("#addEditForm1")[0].reset();
 
                         $('#saveChangesBtn').on('click', function() {

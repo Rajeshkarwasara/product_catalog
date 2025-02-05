@@ -359,8 +359,8 @@
                                     <td>--</td>
                                 </tr>
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Description</th>
+                                    {{-- <th>Title</th>
+                                    <th>Description</th> --}}
                                 </tr>
                                 @php
                                     $titles = explode(',', $productdetails->titles);

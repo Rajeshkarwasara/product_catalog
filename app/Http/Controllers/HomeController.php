@@ -155,6 +155,61 @@ class HomeController extends Controller
             'query'
         ));
     }
+
+    // public function products(Request $request)
+    // {
+    //     $query = $request->input('query'); // Search query
+    //     $selectedCategories = $request->input('categories', []);
+    //     $selectedBrands = $request->input('brands', []);
+
+    //     // Convert comma-separated values into an array if they are sent as a string
+    //     if (!is_array($selectedCategories)) {
+    //         $selectedCategories = explode(',', $selectedCategories);
+    //     }
+    //     if (!is_array($selectedBrands)) {
+    //         $selectedBrands = explode(',', $selectedBrands);
+    //     }
+
+    //     // Define the base query for products
+    //     $productsQuery = DB::table('products')
+    //         ->join('category', 'products.category_id', '=', 'category.id')
+    //         ->join('brands', 'products.brands', '=', 'brands.id')
+    //         ->select('products.*', 'category.name as category_name', 'brands.name as brand_name');
+
+    //     // Apply search query if provided
+    //     if (!empty($query)) {
+    //         $productsQuery->where('products.name', 'like', "%{$query}%");
+    //     }
+
+    //     // Apply category filters if selected
+    //     if (!empty($selectedCategories) && $selectedCategories[0] !== '') {
+    //         $productsQuery->whereIn('products.category_id', $selectedCategories);
+    //     }
+
+    //     // Apply brand filters if selected
+    //     if (!empty($selectedBrands) && $selectedBrands[0] !== '') {
+    //         $productsQuery->whereIn('products.brand_id', $selectedBrands);
+    //     }
+
+    //     // Get the filtered products using simple pagination
+    //     $allProducts = $productsQuery->simplePaginate(12);
+
+    //     // Get all brands and categories for filters
+    //     $brands = Brands::all();
+    //     $categorys  = Category::all();
+
+    //     // Return the view with data
+    //     return view('stc_products.product-list', compact(
+    //         'allProducts',
+    //         'brands',
+    //         'categorys',
+    //         'selectedCategories',
+    //         'selectedBrands',
+    //         'query'
+    //     ));
+    // }
+
+
     public function getproducts($id, Request $request)
     {
         $query = $request->query('query'); // Search query
