@@ -364,7 +364,14 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
-                    tabindex="0">...</div>
+                    tabindex="0" style="text-align: center;">
+                    <h3>{{$productdetails->attachments}}</h3>
+                    @if( $productdetails->attachments)
+                        <a href="{{ asset('uploads/product/attachments/' . $productdetails->attachments) }}" target="_blank" class="pdf-link"><b>Click to View PDF</b></a>
+                    @else
+                        <p>No attachment available.</p>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
