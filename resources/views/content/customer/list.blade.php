@@ -54,24 +54,24 @@
         </div>
     </div>
     {{-- <div class="col-sm-6 col-xl-3">
-      <div class="card">
-         <div class="card-body">
-            <div class="d-flex align-items-start justify-content-between">
-               <div class="content-left">
-                  <span>Verification Pending</span>
-                  <div class="d-flex align-items-end mt-2">
-                     <h3 class="mb-0 me-2">5</h3>
-                     <small class="text-danger">(+6%)</small>
-                  </div>
-                  <small>Recent analytics</small>
-               </div>
-               <span class="badge bg-label-warning rounded p-2">
-               <i class="bx bx-user-voice bx-sm"></i>
-               </span>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-start justify-content-between">
+                    <div class="content-left">
+                        <span>Verification Pending</span>
+                        <div class="d-flex align-items-end mt-2">
+                            <h3 class="mb-0 me-2">5</h3>
+                            <small class="text-danger">(+6%)</small>
+                        </div>
+                        <small>Recent analytics</small>
+                    </div>
+                    <span class="badge bg-label-warning rounded p-2">
+                        <i class="bx bx-user-voice bx-sm"></i>
+                    </span>
+                </div>
             </div>
-         </div>
-      </div>
-   </div> --}}
+        </div>
+    </div> --}}
 </div>
 <div class="row">
     <div class="col-md-12">
@@ -171,7 +171,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- add new user model start  --}}
+                    {{-- add new user model start --}}
                     <div class="offcanvas offcanvas-end w-50" id="offcanvasAddUser"
                         aria-labelledby="offcanvasAddUserLabel" aria-modal="true" role="dialog">
                         <div class="offcanvas-header">
@@ -237,9 +237,13 @@
 
                                     {{-- <div class="col-sm-6">
                                         <div class="mb-3 fv-plugins-icon-container">
-                                            <label class="form-label" for="add-user-email">Date Of Birth <span class="text-danger">*</span></label>
-                                            <input type="text" id="dob" class="form-control" placeholder="Date Of Birth" aria-label="john.doe@example.com" name="dob">
-                                            <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                            <label class="form-label" for="add-user-email">Date Of Birth <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="text" id="dob" class="form-control" placeholder="Date Of Birth"
+                                                aria-label="john.doe@example.com" name="dob">
+                                            <div
+                                                class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                            </div>
                                         </div>
                                     </div> --}}
                                     <div class="col-sm-6">
@@ -256,14 +260,17 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="mb-3 fv-plugins-icon-container">
-                                            <label class="form-label" for="add-user-email">User Type<span class="text-danger">*</span></label>
+                                            <label class="form-label" for="add-user-email">User Type<span
+                                                    class="text-danger">*</span></label>
                                             <select name="user_type" id="user_type" class="form-control">
                                                 <option value="">Select User Type</option>
                                                 <option value="normal">Normal</option>
                                                 <option value="loyal">Loyal</option>
                                                 <option value="wholesaler">Wholesaler</option>
                                             </select>
-                                            <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                            <div
+                                                class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -321,7 +328,8 @@
 
 
                                 {{-- <input type="hidden"> --}}
-                                {{-- <button type="submit" onclick="submit_form();" id="submit_button" class="btn btn-primary me-sm-3 me-1 data-submit">Submit</button> --}}
+                                {{-- <button type="submit" onclick="submit_form();" id="submit_button"
+                                    class="btn btn-primary me-sm-3 me-1 data-submit">Submit</button> --}}
                                 <div class="col-12 d-flex justify-content-end">
                                     <input class="btn btn-primary pull-right submit_button " type="submit" name="Save"
                                         value="Save">
@@ -330,7 +338,54 @@
                         </div>
                     </div>
 
+                    <!-- password change -->
+                    <div class="modal fade" id="changePasswordModal" tabindex="-1"
+                        aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="changePasswordForm" method="POST">
+                                        @csrf
+                                                 <!-- Hidden ID field -->
+                    <input type="hidden" id="user_idd" name="user_idd">
+                                        <div class="form-group">
+                                            <label for="newPassword">New Password:</label>
+                                            <div class="eye_icon position-relative">
+                                                <input type="password" class="form-control" id="password"
+                                                    name="password" required minlength="8" maxlength="16">
+                                                <span class="passwordViewBtn1">
+                                                    <i class="fa fa-eye-slash"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="confirmpassword">Confirm Password:</label>
+                                            <div class=" eye_icon position-relative">
+                                                <input type="password" class="form-control" id="confirm_password"
+                                                    name="confirm_password" required minlength="8" maxlength="16">
+                                                <span class="passwordViewBtn">
+                                                    <i class="fa fa-eye-slash"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!-- Add any additional fields here, like confirm password -->
 
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="updatePasswordd()">Save
+                                        changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {{-- add user model end --}}
                     <div class="table-responsive">
                         <table id="listing_table" class="table">
@@ -358,84 +413,84 @@
 
     @push('scripts')
 
-    <script src="https://code.jquery.com/jquery-5.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-5.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <script>
-        $(document).ready(function() {
-            $("#dob").datepicker({
-                dateFormat: "yy-mm-dd",
-                changeMonth: true,
-                changeYear: true,
-                yearRange: "-100:+0"
+        <script>
+            $(document).ready(function () {
+                $("#dob").datepicker({
+                    dateFormat: "yy-mm-dd",
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-100:+0"
+                });
             });
-        });
-    </script>
+        </script>
 
-    <script>
-        $('.daterange').daterangepicker({
-            autoUpdateInput: true,
-            autoApply: true,
-            locale: {
-                format: 'DD-MM-YYYY',
-                separator: ' to ',
+        <script>
+            $('.daterange').daterangepicker({
+                autoUpdateInput: true,
+                autoApply: true,
+                locale: {
+                    format: 'DD-MM-YYYY',
+                    separator: ' to ',
+                }
+            }, function (start, end, label) {
+                $('#start_range').val(start.format('YYYY-MM-DD'));
+                $('#end_range').val(end.format('YYYY-MM-DD'));
+            });
+            $('.daterange').val('');
+        </script>
+        <script>
+            document.getElementById('submit_form11').addEventListener('click', addItem);
+
+            function addItem() {
+                $("#addEditForm")[0].reset();
+                $('#offcanvasAddUserLabel').text('Add User');
+
+                // Clear validation error messages and classes
+                $("#addEditForm").find('.is-invalid').removeClass('is-invalid');
+                $("#addEditForm").find('.invalid-feedback').empty();
+                $("#addEditForm").find(".error").remove();
+
+                // Hide and clear the image preview
+                $('#imagePreview').hide();
+                $('#imagePreview').attr('src', '');
+
+                // Show password and confirm password fields
+                $("#pass").show();
+                $("#con_pass").show();
+
+                // Set modal title and reset hidden input field for user id
+                $("#addEditModal").modal("show");
+                $("#addEditModal").find(".modal-title").text('Add');
+                $("#addEditModal").find("input[name='id']").val(0);
             }
-        }, function(start, end, label) {
-            $('#start_range').val(start.format('YYYY-MM-DD'));
-            $('#end_range').val(end.format('YYYY-MM-DD'));
-        });
-        $('.daterange').val('');
-    </script>
-    <script>
-        document.getElementById('submit_form11').addEventListener('click', addItem);
 
-        function addItem() {
-            $("#addEditForm")[0].reset();
-            $('#offcanvasAddUserLabel').text('Add User');
+            $(document).ready(function () {
+                // alert('------------------')
+                //listing data table ------------------------------------------------------ Start
+                var table = $('#listing_table').DataTable({
+                    sDom: '<"top"f>rt<"bottom table_bottom"lip><"clear">', // shift selection box in footer
+                    bFilter: false, //hide defalt search box
+                    responsive: true,
+                    "bProcessing": true,
+                    "serverSide": true,
+                    "lengthMenu": [20, 50, 100, 500],
 
-            // Clear validation error messages and classes
-            $("#addEditForm").find('.is-invalid').removeClass('is-invalid');
-            $("#addEditForm").find('.invalid-feedback').empty();
-            $("#addEditForm").find(".error").remove();
+                    ajax: {
+                        url: "{{ url('/customer/list') }}",
+                        data: function (d) {
+                            d.status = $('#status').val()
+                            d.type = $('#customer_type').val()
+                            d.name = $('#name_s').val()
+                            d.start_range = $('#start_range').val()
+                            d.end_range = $('#end_range').val()
 
-            // Hide and clear the image preview
-            $('#imagePreview').hide();
-            $('#imagePreview').attr('src', '');
-
-            // Show password and confirm password fields
-            $("#pass").show();
-            $("#con_pass").show();
-
-            // Set modal title and reset hidden input field for user id
-            $("#addEditModal").modal("show");
-            $("#addEditModal").find(".modal-title").text('Add');
-            $("#addEditModal").find("input[name='id']").val(0);
-        }
-
-        $(document).ready(function() {
-            // alert('------------------')
-            //listing data table ------------------------------------------------------ Start
-            var table = $('#listing_table').DataTable({
-                sDom: '<"top"f>rt<"bottom table_bottom"lip><"clear">', // shift selection box in footer
-                bFilter: false, //hide defalt search box
-                responsive: true,
-                "bProcessing": true,
-                "serverSide": true,
-                "lengthMenu": [20, 50, 100, 500],
-
-                ajax: {
-                    url: "{{ url('/customer/list') }}",
-                    data: function(d) {
-                        d.status = $('#status').val()
-                        d.type = $('#customer_type').val()
-                        d.name = $('#name_s').val()
-                        d.start_range = $('#start_range').val()
-                        d.end_range = $('#end_range').val()
-
-                    }
-                },
-                "aoColumns": [{
+                        }
+                    },
+                    "aoColumns": [{
                         mData: 'id'
                     },
                     {
@@ -461,82 +516,82 @@
                     {
                         mData: 'actions'
                     },
-                ],
-                //add attribute on column using id or attribute 
-                "aoColumnDefs": [{
-                    "bSortable": false,
-                    'aTargets': [-1, 3]
-                }, ],
-                order: [
-                    [0, 'desc']
-                ]
-            });
-            $('#customer_type').on('change', function() {
-                table.draw();
-            });
-            $('#status').on('change', function() {
-                table.draw();
-            });
-            $('.daterange').on('change', function() {
-                if (($('#start_range').val() == '') || ($('#end_range').val() == '')) {
-                    $('.daterange').val('');
-                } else {
+                    ],
+                    //add attribute on column using id or attribute 
+                    "aoColumnDefs": [{
+                        "bSortable": false,
+                        'aTargets': [-1, 3]
+                    },],
+                    order: [
+                        [0, 'desc']
+                    ]
+                });
+                $('#customer_type').on('change', function () {
                     table.draw();
-                }
+                });
+                $('#status').on('change', function () {
+                    table.draw();
+                });
+                $('.daterange').on('change', function () {
+                    if (($('#start_range').val() == '') || ($('#end_range').val() == '')) {
+                        $('.daterange').val('');
+                    } else {
+                        table.draw();
+                    }
+                });
+                $('#cat').on('change', function () {
+                    table.draw();
+                });
+                $('#name_s').keyup(function () {
+                    table.draw();
+                });
+                $('#reset_data').on('click', function () {
+                    $('.daterange').val('');
+                    $('#start_range').val('');
+                    $('#end_range').val('');
+                    $('#status').val('');
+                    $('#customer_type').val('');
+                    $('#name_s').val('');
+                    $('#cat').val(null).trigger('change');
+                    table.draw();
+                    var daterangepicker = $('.daterange').data("daterangepicker");
+                    daterangepicker.startDate = moment();
+                    daterangepicker.endDate = moment();
+                });
+                //listing data table ------------------------------------------------------ End
+
+
             });
-            $('#cat').on('change', function() {
-                table.draw();
-            });
-            $('#name_s').keyup(function() {
-                table.draw();
-            });
-            $('#reset_data').on('click', function() {
-                $('.daterange').val('');
-                $('#start_range').val('');
-                $('#end_range').val('');
-                $('#status').val('');
-                $('#customer_type').val('');
-                $('#name_s').val('');
-                $('#cat').val(null).trigger('change');
-                table.draw();
-                var daterangepicker = $('.daterange').data("daterangepicker");
-                daterangepicker.startDate = moment();
-                daterangepicker.endDate = moment();
-            });
-            //listing data table ------------------------------------------------------ End
-
-
-        });
 
 
 
-        $(document).ready(function() {
+            $(document).ready(function () {
 
-            $.validator.addMethod(
-                "regex",
-                function(value, element) {
-                    return value.match(/^[a-zA-Z ]*$/);
-                },
-                "Only alphabetic characters are allowed."
-            );
+                $.validator.addMethod(
+                    "regex",
+                    function (value, element) {
+                        return value.match(/^[a-zA-Z ]*$/);
+                    },
+                    "Only alphabetic characters are allowed."
+                );
 
-            $.validator.addMethod(
-                "address",
-                function(value, element) {
-                    return value.match(/^[-a-zA-Z0-9., ]*$/);
-                },
-                "Special characters are not allowed."
-            );
+                $.validator.addMethod(
+                    "address",
+                    function (value, element) {
+                        return value.match(/^[-a-zA-Z0-9., ]*$/);
+                    },
+                    "Special characters are not allowed."
+                );
 
-            $.validator.addMethod(
-                "pincode",
-                function(value, element) {
-                    return value.match(/^[a-zA-Z0-9 ]*$/);
-                },
-                "Special characters are not allowed."
-            );
+                $.validator.addMethod(
+                    "pincode",
+                    function (value, element) {
+                        return value.match(/^[a-zA-Z0-9 ]*$/);
+                    },
+                    "Special characters are not allowed."
+                );
 
-            $.validator.addMethod("customPassword", function(value, element) {
+                $.validator.addMethod("customPassword", function (value, element) {
                     // Use a regular expression to check if the input contains at least one number,
                     // one lowercase letter, and one uppercase letter.
                     if (value) {
@@ -545,281 +600,332 @@
                         return true;
                     }
                 },
-                "Password must contain at least one uppercase, one lowercase ,one number, one special character and without spaces."
-            );
+                    "Password must contain at least one uppercase, one lowercase ,one number, one special character and without spaces."
+                );
 
-            $.validator.addMethod("email_val", function(value, element) {
-                return this.optional(element) || value == value.match(
-                    /^[a-zA-Z0-9_\.%\+\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,}$/);
-            }, 'Please enter a valid email address.');
+                $.validator.addMethod("email_val", function (value, element) {
+                    return this.optional(element) || value == value.match(
+                        /^[a-zA-Z0-9_\.%\+\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,}$/);
+                }, 'Please enter a valid email address.');
 
-            //add update item
-            $("#addEditForm").validate({
-                rules: {
-                    first_name: {
-                        required: true,
-                        regex: true
-                    },
-                    last_name: {
-                        required: true,
-                        regex: true
-                    },
-
-                    email: {
-                        required: true,
-                        email_val: true
-                    },
-                    // dob: {
-                    //     required: true,
-                    // },
-                    phone: {
-                        required: true,
-                        minlength: 10,
-                        maxlength: 10
-                    },
-
-                    // gender: {
-                    //     required: true,
-                    // },
-                    user_type: {
-                        required: true,
-                    },
-
-                    // password: {
-                    //     required: true,
-                    //     customPassword: false,
-                    //     minlength: 8,
-                    //     maxlength: 15
-                    // },
-                    // confirm_password: {
-                    //     required: true,
-                    //     minlength: 8,
-                    //     maxlength: 15,
-                    //     equalTo: "#password"
-                    // }
-                },
-                messages: {
-                    phone: {
-                        maxlength: 'Please enter only 10 digits'
-                    },
-
-                    confirm_password: {
-                        equalTo: 'Password and confirm password must be same.'
-                    }
-                },
-                errorElement: 'span',
-                errorPlacement: function(error, element) {
-                    error.addClass('invalid-feedback');
-                    element.closest('.form-control').parent().append(error);
-                },
-                highlight: function(element, errorClass, validClass) {
-                    $(element).addClass('is-invalid');
-                },
-                unhighlight: function(element, errorClass, validClass) {
-                    $(element).removeClass('is-invalid');
-                },
-                submitHandler: function(form) {
-                    //form.submit();
-                    var formData = new FormData($("#addEditForm")[0]);
-                    var url_up = "{{url('customer/store')}}";
-                    $.ajax({
-                        type: "POST",
-                        enctype: 'multipart/form-data',
-                        url: url_up,
-                        data: formData,
-                        mimeType: "multipart/form-data",
-                        contentType: false,
-                        cache: false,
-                        processData: false,
-                        beforeSend: function() {
-                            $("#addEditForm").find('.submit_button').attr("disabled", true);
-                            $('.loader').show();
+                //add update item
+                $("#addEditForm").validate({
+                    rules: {
+                        first_name: {
+                            required: true,
+                            regex: true
                         },
-                        success: function(data) {
-                            $("#addEditForm").find('.submit_button').attr("disabled",
-                                false);
-                            $('.loader').hide();
-                            var response = JSON.parse(data);
-                            //console.log(response);
-                            if (response.code == 200) {
-                                //show notification
-                                //location.reload();
-                                toastr.success(response.msg);
-                                setTimeout(function() {
-                                    window.location.href = "{{url('customer')}}";
-                                }, 3000);
-                            } else {
-                                toastr.error(response.msg);
-                                // $("#addEditForm").find('.submit_button').attr("disabled", true);
-                            }
+                        last_name: {
+                            required: true,
+                            regex: true
                         },
-                    });
-                    return false;
-                }
-            });
-        });
 
-        function removedata(id) {
-            $.ajax({
-                type: "POST",
-                url: "{{route('delete.customer')}}",
-                data: {
-                    id: id,
-                    _token: '{{csrf_token()}}'
-                },
-                success: function(data) {
-                    // console.log(data.success)
-                    toastr.success(data.success);
-                    $('#listing_table').DataTable().ajax.reload();
-                },
-            });
-        }
+                        email: {
+                            required: true,
+                            email_val: true
+                        },
+                        // dob: {
+                        //     required: true,
+                        // },
+                        phone: {
+                            required: true,
+                            minlength: 10,
+                            maxlength: 10
+                        },
 
+                        // gender: {
+                        //     required: true,
+                        // },
+                        user_type: {
+                            required: true,
+                        },
 
-        function deleteItem(id) {
-            Swal.fire({
-                title: 'Are you sure?',
-                text: 'You want to delete this customer!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes',
-                cancelButtonText: 'No'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // call the removedata function with the id parameter
-                    removedata(id);
-                }
-            });
-        }
+                        // password: {
+                        //     required: true,
+                        //     customPassword: false,
+                        //     minlength: 8,
+                        //     maxlength: 15
+                        // },
+                        // confirm_password: {
+                        //     required: true,
+                        //     minlength: 8,
+                        //     maxlength: 15,
+                        //     equalTo: "#password"
+                        // }
+                    },
+                    messages: {
+                        phone: {
+                            maxlength: 'Please enter only 10 digits'
+                        },
 
-
-
-        $(document).ready(function() {
-            $(document).on('change', '.status-checkbox', function() {
-                var id = $(this).data("id");
-                if (this.checked) {
-                    var value = '1';
-                } else {
-                    var value = '0';
-                }
-                updateItemStatus(id = id, type = 'status', value = value);
-
-            })
-        });
-
-
-
-        function updateItem(id) {
-            $("#addEditForm").find('.invalid-feedback').empty();
-            $("#addEditForm").find(".error").remove();
-            $('#offcanvasAddUserLabel').text('Update User');
-            //  alert(id)
-            // $("#offcanvasAddUser").modal('show');
-         
-            $("#con_pass").hide();
-            $.ajax({
-                type: "POST",
-                url: "{{ url('customer/get_by_id') }}",
-                data: {
-                    id: id,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(data) {
-                    var response = JSON.parse(data);
-                    console.log(response)
-                    if (response.code == 200) {
-                        var item = response.data.customer_detail;
-                        var variables = response.config_val;
-                        $("#addEditForm").find("input[name='password']").removeAttr("required");
-                        //put  item details in all input fields
-                        $("#addEditForm").find(".modal-title").text('Update');
-                        $("#addEditForm").find("input[name='id']").val(item.id);
-                        $("#addEditForm").find("select[name='gender']").val(item.gender);
-                        $("#addEditForm").find("input[name='first_name']").val(item.first_name);
-                        $("#addEditForm").find("input[name='last_name']").val(item.last_name);
-                        $("#addEditForm").find("input[name='email']").val(item.email);
-                        $("#addEditForm").find("input[name='phone']").val(item.phone);
-                        $("#addEditForm").find("input[name='password']").val("");
-                        $("#addEditForm").find("select[name='user_type']").val(item.user_type);
-                        var fileName = item.image;
-                        var imagePath = '/uploads/customer_profile_img/' + fileName;
-
-                        if (fileName) {
-                            // Update the label text to show the selected file name
-                            $("#addEditForm").find(".file-upload-info").val(fileName).attr('placeholder',
-                                fileName);
-
-                            // Create the <img> tag
-                            var imgTag = $('<img>').attr('src', imagePath).attr('alt', 'Image');
-
-                            // Append the <img> tag to a container in your modal
-                            $("#addEditForm").find(".image-preview-container").html(imgTag);
-
-                            // Show the image preview
-                            $('#imagePreview').show();
-                            $('#imagePreview').attr('src', imagePath);
-                        } else {
-                            // If no image, display a default image or a placeholder
-                            $('#imagePreview').show();
-                            $('#imagePreview').attr('src',
-                                '/uploads/default_image/default.png'); // display default image
+                        confirm_password: {
+                            equalTo: 'Password and confirm password must be same.'
                         }
-
-
-                        $("#addEditForm").find("input").removeClass('is-invalid');
-                        $("#addEditForm").find("textarea").removeClass('is-invalid');
-                        $("#addEditForm").find("number").removeClass('is-invalid');
-                        $("#addEditForm").find(".error").remove();
-                        // $("#addEditForm").modal("show");
-
-
-                    } else {
-                        toastr.error(response.msg);
+                    },
+                    errorElement: 'span',
+                    errorPlacement: function (error, element) {
+                        error.addClass('invalid-feedback');
+                        element.closest('.form-control').parent().append(error);
+                    },
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).addClass('is-invalid');
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        $(element).removeClass('is-invalid');
+                    },
+                    submitHandler: function (form) {
+                        //form.submit();
+                        var formData = new FormData($("#addEditForm")[0]);
+                        var url_up = "{{url('customer/store')}}";
+                        $.ajax({
+                            type: "POST",
+                            enctype: 'multipart/form-data',
+                            url: url_up,
+                            data: formData,
+                            mimeType: "multipart/form-data",
+                            contentType: false,
+                            cache: false,
+                            processData: false,
+                            beforeSend: function () {
+                                $("#addEditForm").find('.submit_button').attr("disabled", true);
+                                $('.loader').show();
+                            },
+                            success: function (data) {
+                                $("#addEditForm").find('.submit_button').attr("disabled",
+                                    false);
+                                $('.loader').hide();
+                                var response = JSON.parse(data);
+                                //console.log(response);
+                                if (response.code == 200) {
+                                    //show notification
+                                    //location.reload();
+                                    toastr.success(response.msg);
+                                    setTimeout(function () {
+                                        window.location.href = "{{url('customer')}}";
+                                    }, 3000);
+                                } else {
+                                    toastr.error(response.msg);
+                                    // $("#addEditForm").find('.submit_button').attr("disabled", true);
+                                }
+                            },
+                        });
+                        return false;
                     }
-                },
+                });
             });
-        }
 
-        //update item
-        function updateItemStatus(id, type, value) {
-            $.ajax({
-                type: "POST",
-                url: "{{route('customer.status')}}",
-                data: {
-                    id: id,
-                    type: type,
-                    value: value,
-                    _token: '{{csrf_token()}}'
-                },
-                success: function(data) {
-                    var response = JSON.parse(data);
-                    if (response.code == 200) {
-                        toastr.success(response.msg);
-                    } else {
-                        toastr.error(response.msg, "warning");
-                    }
-                    //reload data table in case of delete item
-                    // if (type == 'delete') {
-                    var active_page = $(".pagination").find("li.active a").text();
-                    //reload datatable
-                    $('#listing_table').dataTable().fnPageChange((parseInt(active_page) - 1));
-                    // }
-
-                },
-            });
-        }
-
-
-        $(document).on("click", ".passwordViewBtn", function() {
-            var $input = $(this).parent().find("input.pass_word");
-            var atrr = $input.attr('type');
-            if (atrr == 'password') {
-                $input.attr('type', 'text');
-                $(this).find("i").attr('class', 'bx bx-show');
-            } else {
-                $input.attr('type', 'password');
-                $(this).find("i").attr('class', 'bx bx-hide');
+            function removedata(id) {
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('delete.customer')}}",
+                    data: {
+                        id: id,
+                        _token: '{{csrf_token()}}'
+                    },
+                    success: function (data) {
+                        // console.log(data.success)
+                        toastr.success(data.success);
+                        $('#listing_table').DataTable().ajax.reload();
+                    },
+                });
             }
-        });
-    </script>
+
+
+            function deleteItem(id) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'You want to delete this customer!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // call the removedata function with the id parameter
+                        removedata(id);
+                    }
+                });
+            }
+
+
+
+            $(document).ready(function () {
+                $(document).on('change', '.status-checkbox', function () {
+                    var id = $(this).data("id");
+                    if (this.checked) {
+                        var value = '1';
+                    } else {
+                        var value = '0';
+                    }
+                    updateItemStatus(id = id, type = 'status', value = value);
+
+                })
+            });
+
+
+
+            function updateItem(id) {
+                $("#addEditForm").find('.invalid-feedback').empty();
+                $("#addEditForm").find(".error").remove();
+                $('#offcanvasAddUserLabel').text('Update User');
+                //  alert(id)
+                // $("#offcanvasAddUser").modal('show');
+
+                $("#con_pass").hide();
+                $("#pass").hide();
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url('customer/get_by_id') }}",
+                    data: {
+                        id: id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function (data) {
+                        var response = JSON.parse(data);
+                        console.log(response)
+                        if (response.code == 200) {
+                            var item = response.data.customer_detail;
+                            var variables = response.config_val;
+                            $("#addEditForm").find("input[name='password']").removeAttr("required");
+                            //put  item details in all input fields
+                            $("#addEditForm").find(".modal-title").text('Update');
+                            $("#addEditForm").find("input[name='id']").val(item.id);
+                            $("#addEditForm").find("select[name='gender']").val(item.gender);
+                            $("#addEditForm").find("input[name='first_name']").val(item.first_name);
+                            $("#addEditForm").find("input[name='last_name']").val(item.last_name);
+                            $("#addEditForm").find("input[name='email']").val(item.email);
+                            $("#addEditForm").find("input[name='phone']").val(item.phone);
+                            $("#addEditForm").find("input[name='password']").val("");
+                            $("#addEditForm").find("select[name='user_type']").val(item.user_type);
+                            var fileName = item.image;
+                            var imagePath = '/uploads/customer_profile_img/' + fileName;
+
+                            if (fileName) {
+                                // Update the label text to show the selected file name
+                                $("#addEditForm").find(".file-upload-info").val(fileName).attr('placeholder',
+                                    fileName);
+
+                                // Create the <img> tag
+                                var imgTag = $('<img>').attr('src', imagePath).attr('alt', 'Image');
+
+                                // Append the <img> tag to a container in your modal
+                                $("#addEditForm").find(".image-preview-container").html(imgTag);
+
+                                // Show the image preview
+                                $('#imagePreview').show();
+                                $('#imagePreview').attr('src', imagePath);
+                            } else {
+                                // If no image, display a default image or a placeholder
+                                $('#imagePreview').show();
+                                $('#imagePreview').attr('src',
+                                    '/uploads/default_image/default.png'); // display default image
+                            }
+
+
+                            $("#addEditForm").find("input").removeClass('is-invalid');
+                            $("#addEditForm").find("textarea").removeClass('is-invalid');
+                            $("#addEditForm").find("number").removeClass('is-invalid');
+                            $("#addEditForm").find(".error").remove();
+                            // $("#addEditForm").modal("show");
+
+
+                        } else {
+                            toastr.error(response.msg);
+                        }
+                    },
+                });
+            }
+            function updatePassword(id) {
+                $("#user_idd").val(id);
+                $("#changePasswordModal").modal("show");
+            }
+            function updatePasswordd(id) {
+                var id = $("#user_idd").val();
+                // Get values from modal input fields
+                var password = $("#changePasswordForm").find("input[name='password']").val();
+                var confirmPassword = $("#changePasswordForm").find("input[name='confirm_password']").val();
+
+                // Validate that both passwords match
+                if (password !== confirmPassword) {
+                    toastr.error("Passwords do not match.");
+                    return;
+                }
+
+                // Validate password length
+                if (password.length < 8 || password.length > 16) {
+                    toastr.error("Password must be between 8 and 16 characters.");
+                    return;
+                }
+
+                // Send the data via AJAX
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url('customer/get_by_id_pass') }}", // Update to the correct route for password update
+                    data: {
+                        password: password,
+                        id: id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function (data) {
+                      
+                        console.log(data.code);
+                        if (data.code == 200) {
+                            toastr.success("Password updated successfully!");
+                            $("#changePasswordModal").modal("hide");
+                            window.location.reload();
+                            // Close the modal after success
+                        } else {
+                            toastr.error(data.msg);
+                        }
+                    },
+                    error: function (error) {
+                        toastr.error("An error occurred.");
+                    }
+                });
+            }
+
+
+
+            //update item
+            function updateItemStatus(id, type, value) {
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('customer.status')}}",
+                    data: {
+                        id: id,
+                        type: type,
+                        value: value,
+                        _token: '{{csrf_token()}}'
+                    },
+                    success: function (data) {
+                        var response = JSON.parse(data);
+                        if (response.code == 200) {
+                            toastr.success(response.msg);
+                        } else {
+                            toastr.error(response.msg, "warning");
+                        }
+                        //reload data table in case of delete item
+                        // if (type == 'delete') {
+                        var active_page = $(".pagination").find("li.active a").text();
+                        //reload datatable
+                        $('#listing_table').dataTable().fnPageChange((parseInt(active_page) - 1));
+                        // }
+
+                    },
+                });
+            }
+
+
+            $(document).on("click", ".passwordViewBtn", function () {
+                var $input = $(this).parent().find("input.pass_word");
+                var atrr = $input.attr('type');
+                if (atrr == 'password') {
+                    $input.attr('type', 'text');
+                    $(this).find("i").attr('class', 'bx bx-show');
+                } else {
+                    $input.attr('type', 'password');
+                    $(this).find("i").attr('class', 'bx bx-hide');
+                }
+            });
+        </script>
     @endpush

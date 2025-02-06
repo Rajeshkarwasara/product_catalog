@@ -148,7 +148,12 @@ class CustomerController extends Controller
                 // $view = '<a href="javascript:void(0)" onclick="viewItem('.$value->id.')" data-toggle="tooltip" title="View"><i class="ik ik-eye f-16 text-green mr-1"></i></a> ';
                 // if (Auth::user()->can('customer_view')) {
                 $view = '<a href="' . url('customer/view/' . $value->id) . '" data-toggle="tooltip" data-bs-target="#viewModal   " title="View"><i class="bx bxs-show f-16 text-green mr-1"></i></a> ';
+              
+$password = '';
+if (Auth::user()->can('customer_edit')) {
+$password = '<a href="javascript:void(0)" onclick="updatePassword(' . $value->id . ')" class="table-actions" >  <i class="bx bx-pencil f-16 text-green mr-1"></i></a>';
 
+}
                 // }
                 $delete = '';
                 if (Auth::user()->can('customer_delete')) {
@@ -158,7 +163,7 @@ class CustomerController extends Controller
                 // if (Auth::user()->can('invoice_quotation')) {
                 // $qt = '<a href="'.url('invoice-quotation?c='.$value->id).'" data-toggle="tooltip" title="Quotation"><i class="fas fa-file f-16 text-red mr-1"></i></a>';
                 // }
-                $row['actions'] = '<div class="table-actions">' . $view . $edit . $delete . '</div>';
+                $row['actions'] = '<div class="table-actions">' . $view . $edit . $password . $delete . '</div>';
 
                 $datas[] = $row;
                 $i++;
@@ -404,7 +409,32 @@ class CustomerController extends Controller
         }
         return json_encode($res);
     }
-
+    public function get_by_id_pass(Request $request)
+    {
+        // dd($request->all());
+        $id = $request->id;
+        $password = $request->password;
+    
+        try {
+            // Find the customer
+            $customer = Customer::find($id);
+    
+            if (!$customer) {
+                return response()->json(['code' => 404, 'msg' => 'Customer not found.']);
+            }
+    
+            // Update the password, make sure to hash it
+            $customer->password = bcrypt($password);
+            $customer->save();
+    
+            $res = array('code' => 200, 'msg' => 'Password updated successfully!');
+        } catch (\Exception $e) {
+            $res = array('code' => 500, 'msg' => 'Something went wrong! Try again. Error: ' . $e->getMessage());
+        }
+    
+        return response()->json($res);
+    }
+    
     public function view($id, Request $request)
     {
 

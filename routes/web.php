@@ -159,6 +159,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'can:customer_edit'], function () {
         Route::post('customer/get_by_id', [CustomerController::class, 'get_by_id']);
+        Route::post('customer/get_by_id_pass', [CustomerController::class, 'get_by_id_pass']);
         Route::post('customer/update_status', [CustomerController::class, 'update_status'])->name('customer.status');
     });
 
